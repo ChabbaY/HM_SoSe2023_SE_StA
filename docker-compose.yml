@@ -1,0 +1,38 @@
+version: '3.4'
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=api_user
+      - POSTGRES_PASSWORD=BaqV7knGfeuYzC
+      - POSTGRES_DB=api
+    volumes:
+      - ./db:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+
+  se_sta_api:
+    container_name: api
+    image: ${DOCKER_REGISTRY-}sestaapi
+    build:
+      context: ./SE_StA_API
+      dockerfile: Dockerfile
+    ports:
+      - "50000:80"
+      - "50001:443"
+    depends_on:
+      - postgres
+  
+  angular:
+    container_name: angular
+    image: ${DOCKER_REGISTRY-}sestaangular
+    build: ./SE_StA_Angular
+    ports:
+      - "4200:80"
+    depends_on:
+      - se_sta_api
+  

@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SE_StA_API</name>
+    </assembly>
+    <members>
+        <member name="M:SE_StA_API.Authentication.AuthController.Register(SE_StA_API.Authentication.RegistrationRequest)">
+            <summary>
+            Creates an user account with the given data.
+            </summary>
+            <param name="request">Registration Request Data</param>
+            <returns></returns>
+        </member>
+        <member name="M:SE_StA_API.Authentication.AuthController.Authenticate(SE_StA_API.Authentication.AuthRequest)">
+            <summary>
+            Returns an access token when correct login information is provided.
+            </summary>
+            <param name="request">Authentication Request Data</param>
+            <returns></returns>
+        </member>
+        <member name="M:SE_StA_API.Authentication.AuthController.ConfirmEmail(System.String,System.String)">
+            <summary>
+            Verifies an emil address.
+            </summary>
+            <param name="token">Email Verification Token</param>
+            <param name="email">Email Address</param>
+        </member>
+        <member name="M:SE_StA_API.Authentication.AuthController.GetAllUsers">
+            <summary>
+            Returns all registered users.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Authentication.AuthController.DeleteUser(System.String)">
+            <summary>
+            Deletes an user.
+            </summary>
+            <param name="email">Email Address</param>
+        </member>
+        <member name="M:SE_StA_API.Authentication.RoleController.GetAllRoles">
+            <summary>
+            Returns all roles.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Authentication.RoleController.GetRole(System.String)">
+            <summary>
+            Returns the role with a given name.
+            </summary>
+            <param name="roleName">roleName</param>
+        </member>
+        <member name="M:SE_StA_API.Authentication.RoleController.CreateRole(System.String)">
+            <summary>
+            Adds a role.
+            </summary>
+            <param name="roleName">roleName</param>
+        </member>
+        <member name="M:SE_StA_API.Authentication.RoleController.DeleteRole(System.String)">
+            <summary>
+            Deletes a role.
+            </summary>
+            <param name="roleName">roleName</param>
+        </member>
+        <member name="M:SE_StA_API.Authentication.RoleController.GetAllAssignedUsers(System.String)">
+            <summary>
+            Returns all users, that are assigned to a specific role.
+            </summary>
+            <param name="roleName">roleName</param>
+        </member>
+        <member name="M:SE_StA_API.Authentication.RoleController.AddUserToRole(System.String,System.String)">
+            <summary>
+            Adds an user to a specific role.
+            </summary>
+            <param name="roleName">roleName</param>
+            <param name="email">the user's email</param>
+        </member>
+        <member name="M:SE_StA_API.Authentication.RoleController.RemoveUserFromRole(System.String,System.String)">
+            <summary>
+            Removes an user from a specific role.
+            </summary>
+            <param name="roleName">roleName</param>
+            <param name="email">the user's email</param>
+        </member>
+        <member name="M:SE_StA_API.Authentication.RoleController.GetRolesOverview">
+            <summary>
+            Returns all roles with assigned users.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Authentication.TwoFactor.TwoFactorAuthController.Enable">
+            <summary>
+            Returns the code to setup 2FA, also as QR-Code.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Authentication.TwoFactor.TwoFactorAuthController.Enable(System.String)">
+            <summary>
+            Activates 2FA for the user if code is valid.
+            </summary>
+            <param name="activationCode">Code from the 2FA client</param>
+        </member>
+        <member name="M:SE_StA_API.Authentication.TwoFactor.TwoFactorAuthController.Disable(System.String)">
+            <summary>
+            Deactivates 2FA for the user if code is valid.
+            </summary>
+            <param name="code">Code from the 2FA client</param>
+        </member>
+        <member name="M:SE_StA_API.Authentication.TwoFactor.TwoFactorAuthController.IsEnabled">
+            <summary>
+            Returns wether or not 2FA is enabled (for the current user).
+            </summary>
+        </member>
+        <member name="T:SE_StA_API.Controllers.CountryController">
+            <summary>
+            This endpoint manages all operations for countries.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CountryController.GetAllCountries">
+            <summary>
+            Returns all countries.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CountryController.GetCountry(System.Int32)">
+            <summary>
+            Returns the country with a given id.
+            </summary>
+            <param name="cid">CountryId</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CountryController.AddCountry(SE_StA_API.DataObject.Country)">
+            <summary>
+            Adds a country.
+            </summary>
+            <param name="value">new Country</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CountryController.UpdateCountry(System.Int32,SE_StA_API.DataObject.Country)">
+            <summary>
+            Updates a country.
+            </summary>
+            <param name="cid">CountryId</param>
+            <param name="value">new Country</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CountryController.DeleteCountry(System.Int32)">
+            <summary>
+            Delete a country.
+            </summary>
+            <param name="cid">CountryId</param>
+        </member>
+        <member name="P:SE_StA_API.Store.ApplicationContext.Countries">
+            <summary>
+            database table Dummies
+            </summary>
+        </member>
+    </members>
+</doc>

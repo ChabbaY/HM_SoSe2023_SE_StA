@@ -1,0 +1,37 @@
+footer {
+  background-color: var(--primaryColor);
+  color: var(--secundaryColor);
+  padding-left: var(--spacing-left);
+  padding-right: var(--spacing-right);
+  padding-bottom: 2rem;
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.footer-sub-left {
+  width: 40%;
+}
+
+.footer-sub-right {
+  padding-left: 2rem;
+}
+
+/*
+TABLET
+*/
+@media only screen and (max-width: 900px) {
+  .footer-sub-left p, .footer-sub-right p, .footer-sub-left button, .footer-sub-right button {
+    font-size: 0.85rem;
+  }
+}
+
+/*
+PHONE
+*/
+@media only screen and (max-width: 600px) {
+  .footer-sub-left p, .footer-sub-right p, .footer-sub-left button, .footer-sub-right button {
+    font-size: 0.65rem;
+  }
+}

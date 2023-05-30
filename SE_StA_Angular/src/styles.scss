@@ -1,1 +1,227 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --primaryColor: #000;
+  --secundaryColor: #fff;
+  --textOnPrimary: #fff;
+  --textOnSecundary: #000;
+  --main-text: #000;
+  --gradient-from: #f3f4f6;
+  --gradient-to: #9ca3af;
+  --spacing-left: 3rem;
+  --spacing-right: 3rem;
+}
+
+/*
+PREFLIGHT
+*/
+
+blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  vertical-align: middle;
+}
+
+*, ::before, ::after {
+  border-width: 0;
+  border-style: solid;
+  border-color: var(--primaryColor);
+}
+
+button:focus {
+  outline: none;
+}
+
+input:focus, textbox:focus, textarea:focus {
+  outline: 1px solid var(--secundaryColor);
+}
+
+/*
+MAIN TAGS
+*/
+
+html {
+  background: linear-gradient(45deg, var(--gradient-from) 0%, var(--gradient-to) 100%);
+  background-attachment: fixed;
+  color: var(--main-text);
+  height: 100%;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  background-color: red;
+}
+
+/*
+HEADINGS & TEXT
+*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+h1 {
+  font-size: 3.75rem;
+  line-height: 4rem;
+}
+h2 {
+  font-size: 3rem;
+  line-height: 3.5rem;
+}
+h3 {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+h4 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+h5 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+h6 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+/*
+CONTENT TAGS
+*/
+
+a {
+  color: var(--secundaryColor);
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+button, input, textbox, textarea {
+  background-color: var(--primaryColor);
+  border: 1px solid var(--primaryColor);
+  color: var(--secundaryColor);
+  font-size: 1rem;
+  padding: 0.25rem;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+div#left {
+  margin-right: var(--spacing-right);
+  width: 20%;
+}
+
+div#right {
+  width: 100%;
+}
+
+img, video {
+  max-width: 100%;
+}
+
+input, textbox, textarea {
+  opacity: 0.9;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/*
+CLASSES
+*/
+
+.modal-container {
+  display: none;
+  position: fixed;
+  z-index: 0;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: var(--primaryColor);
+  opacity: 0.9;
+}
+.modal {
+  background: linear-gradient(45deg, var(--gradient-from) 0%, var(--gradient-to) 100%);
+  margin-top: 10rem;
+  margin-left: 7.5%;
+  padding: 2rem;
+  border: 1px solid var(--primaryColor);
+  width: 80%;
+}
+.modal-close {
+  background-color: var(--secundaryColor);
+  color: var(--primaryColor);
+  float: right;
+  font-weight: bold;
+}
+.modal-close:hover {
+  color: red;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  margin-right: var(--spacing-right);
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.list-dotted {
+  list-style: disc;
+  list-style-position: inside;
+  padding-left: 1rem;
+}
+
+.section {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.w-full {
+  width: 100%;
+}

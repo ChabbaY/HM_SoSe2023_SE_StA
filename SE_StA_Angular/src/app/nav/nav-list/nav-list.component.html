@@ -1,0 +1,13 @@
+<ul>
+  <li>
+    <button routerLink="{{home.target}}">{{home.name}}</button>
+  </li>
+  <li id="break"></li>
+  <li *ngFor="let item of items">
+    <button routerLink="{{item.target}}">{{item.name}}</button>
+  </li>
+  <li *ngIf="hasSubitems" id="break"></li>
+  <li *ngFor="let item of subitems">
+    <button *ngIf="hasSubitems" routerLink="{{item.target}}">{{item.name}}</button>
+  </li>
+</ul>

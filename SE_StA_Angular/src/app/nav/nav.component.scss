@@ -1,0 +1,12 @@
+nav {
+  background-color: var(--primaryColor);
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  padding-left: var(--spacing-left);
+  padding-right: var(--spacing-right);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}

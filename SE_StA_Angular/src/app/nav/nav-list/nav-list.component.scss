@@ -1,0 +1,37 @@
+:host {
+  flex: 1 1 auto;
+  width: fit-content;
+  max-width: 75%;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+li {
+  display: block;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+#break {
+  width: 100%;
+  border-bottom: 0.25rem solid var(--secundaryColor);
+}
+
+/*
+TABLET
+*/
+@media only screen and (max-width: 900px) {
+  ul {
+    flex-direction: column;
+  }
+}

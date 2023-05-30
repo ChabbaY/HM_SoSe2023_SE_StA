@@ -19,4 +19,10 @@ RUN dotnet publish "SE_StA_API.csproj" -c Release -o /app/publish /p:UseAppHost=
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
+COPY SE_StA_API.pfx /https/
+#https environment vars
+ENV ASPNETCORE_Kestrel__Certificates__Default__Password=Mjn6mUp2upDocRhLCd!Cc55d9ez
+ENV ASPNETCORE_Kestrel__Certificates__Default__Path=/https/SE_StA_API.pfx
+
 ENTRYPOINT ["dotnet", "SE_StA_API.dll"]

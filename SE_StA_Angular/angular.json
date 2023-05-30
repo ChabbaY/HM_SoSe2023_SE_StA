@@ -39,8 +39,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "8mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -77,10 +77,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ChabbaY_Angular:build:production"
+              "browserTarget": "SE_StA_Angular:build:production"
             },
             "development": {
-              "browserTarget": "ChabbaY_Angular:build:development"
+              "browserTarget": "SE_StA_Angular:build:development"
             }
           },
           "defaultConfiguration": "development"

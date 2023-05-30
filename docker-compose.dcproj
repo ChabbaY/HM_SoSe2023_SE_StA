@@ -9,13 +9,15 @@
     <DockerServiceName>se_sta_api</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="Classes.mmd" />
+	<None Include="Classes.png" />
     <None Include="docker-compose.override.yml">
       <DependentUpon>docker-compose.yml</DependentUpon>
     </None>
     <None Include="docker-compose.yml" />
     <None Include=".dockerignore" />
-	<None Include=".gitattributes" />
-	<None Include=".gitignore" />
-	<None Include="README.md" />
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include="README.md" />
   </ItemGroup>
 </Project>

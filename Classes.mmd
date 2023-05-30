@@ -1,0 +1,86 @@
+---
+title: Classes
+---
+%%{init:{"theme":"dark","themeVariables":{"primaryColor":"white","classText":"white","primaryTextColor":"white","primaryBorderColor":"white","lineColor":"red","secondaryColor":"black","tertiaryColor":"white"}}}%%
+
+classDiagram
+direction LR
+class AspNetRoleClaims {
+	+Id : int
+	+RoleId : string
+	+ClaimType : string
+	+ClaimValue : string
+}
+class AspNetRoles {
+	+Id : string
+	+Name : string [256]
+	+NormalizedName : string [256]
+	+ConcurrencyStamp : string
+}
+class AspNetUserClaims {
+	+Id : int
+	+UserId : string
+	+ClaimType : string
+	+ClaimValue : string
+}
+class AspNetUserLogins {
+	+LoginProvider : string
+	+ProviderKey : string
+	+ProviderDisplayName : string
+	+UserId : string
+}
+class AspNetUserRoles {
+	+UserId : string
+	+RoleId : string
+}
+class AspNetUserTokens {
+	+UserId : string
+	+LoginProvider : string
+	+Name : string
+	+Value : string
+}
+class AspNetUsers {
+	+Id : string
+	+UserName : string
+	+NormalizedUserName : string
+	+Email : string
+	+EmailConfirmed : boolean
+	+PasswordHash : string
+	+SecurityStamp : string
+	+ConcurrencyStamp : string
+	+PhoneNumber : string
+	+PhoneNumberConfirmed : boolean
+	+TwoFactorEnabled : boolean
+	+LockoutEnd : string
+	+LockoutEnabled : boolean
+	+AccessFailedCount : int
+}
+
+class AuthRequest {
+	+Email : string
+	+Passord : string
+}
+class AuthResponse {
+	+Username : string
+	+Email : string
+	+Token : string
+}
+class RegistrationRequest {
+	+Email : string
+	+Username : string
+	+Password : string
+}
+
+class Country {
+	+Id : int
+	+Name : string
+	+Language : string
+	+Iso2 : string
+}
+
+AspNetRoleClaims "*" --> "1" AspNetRoles : RoleId
+AspNetUserClaims "*" --> "1" AspNetUsers : UserId
+AspNetUserLogins "*" --> "1" AspNetUsers : UserId
+AspNetUserRoles "*" --> "1" AspNetRoles : RoleId
+AspNetUserRoles "*" --> "1" AspNetUsers : UserId
+AspNetUserTokens "*" --> "1" AspNetUsers : UserId

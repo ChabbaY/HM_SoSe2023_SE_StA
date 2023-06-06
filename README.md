@@ -22,6 +22,12 @@ gestartet werden. (min. Angular CLI 16.0.3)
 In diesem Verzeichnis ein Terminal öffnen und folgenden Befehl absetzen:
 `docker-compose up`
 
+# Projektmanagement
+
+Im Unterordner Projektmanagement liegen alle Dateien des ersten Artefakts der Studienarbeit:
+Das überarbeitete Pflichenheft, der Projektstrukturplan sowie die Einsatzmittelpanung in der Excel-Datei "Projektstrukturplan", sowie der dazugehörige MPM-Netzplan mit Meilensteinen als SVG:
+![MPMNetzplan](Projektmanagement/MPM_Netzplan.svg)
+
 # Datenmodell
 
 Die funktionalen Anforderungen gehen aus dem Pflichtenheft hervor. Hier ist das vollständige Datenmodell inklusive Umsetzung der Berechtigungsstruktur gezeigt.

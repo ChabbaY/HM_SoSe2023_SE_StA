@@ -71,11 +71,45 @@ class RegistrationRequest {
 	+Password : string
 }
 
+class Address {
+	+Id : int [PK]
+	+Street : string
+	+HouseNr : string
+	+Postcode : string
+	+City : string
+	+Addition : string
+}
+class Contact {
+	+Id : int [PK]
+	+Title : string
+	+Telefone : string
+}
+class ContactAddress {
+	+ContactId : int [PK][FK]
+	+AddressId : int [PK][FK]
+}
 class Country {
-	+Id : int
+	+Id : int [PK]
 	+Name : string
 	+Language : string
 	+Iso2 : string
+}
+class CountryTimezone {
+	+CountryId : int [PK][FK]
+	+TimezoneId : int [PK][FK]
+}
+class Customer {
+	+Id : int [PK]
+	+ContactId : int [FK]
+	+Nr : string
+	+FirstName : string
+	+LastName : string
+	+DateOfBirth : Datetime
+}
+class Timezone {
+	+Id : int [PK]
+	+Name : string
+	+DiffUtc : int
 }
 
 AspNetRoleClaims "*" --> "1" AspNetRoles : RoleId
@@ -84,3 +118,9 @@ AspNetUserLogins "*" --> "1" AspNetUsers : UserId
 AspNetUserRoles "*" --> "1" AspNetRoles : RoleId
 AspNetUserRoles "*" --> "1" AspNetUsers : UserId
 AspNetUserTokens "*" --> "1" AspNetUsers : UserId
+
+ContactAddress "*" --> "1" Address : AddressId
+ContactAddress "*" --> "1" Contact : ContactId
+CountryTimezone "*" --> "1" Country : CountryId
+CountryTimezone "*" --> "1" Timezone : TimezoneId
+Customer "1" o-- "1" Contact : ContactId

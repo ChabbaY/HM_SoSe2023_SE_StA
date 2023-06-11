@@ -3,7 +3,7 @@
 namespace SE_StA_API.DataObject {
     public class Country {
         [Key]
-        public int Id { get; set; }
+        public int CountryId { get; set; }
 
         [Required]
         [MinLength(1)]

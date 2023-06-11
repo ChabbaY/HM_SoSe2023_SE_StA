@@ -12,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 import { HomeComponent } from './home/home.component';
 import { InfoModule } from './info/info.module';
+import { HotelModule } from './hotel/hotel.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { InfoModule } from './info/info.module';
     CommonModule,
     FooterModule,
     NavModule,
-    InfoModule
+    InfoModule,
+    HotelModule
   ],
   bootstrap: [AppComponent]
 })

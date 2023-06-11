@@ -1,0 +1,14 @@
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Kontakt</th>
+        <th>Name</th>
+        <th>Zimmer</th>
+    </thead>
+    <tr *ngFor="let hotel of hotels">
+        <td>{{hotel.id}}</td>
+        <td>{{hotel.contactId}}</td>
+        <td>{{hotel.name}}</td>
+        <td><button routerLink="./rooms">Zimmer</button></td>
+    </tr>
+</table>

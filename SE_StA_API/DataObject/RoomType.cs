@@ -13,8 +13,5 @@ namespace SE_StA_API.DataObject {
          [Required]
          [MaxLength(50)]
          public double StandardPrice { get; set; }
-
-
-
     }
 }

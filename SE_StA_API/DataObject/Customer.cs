@@ -9,6 +9,7 @@ namespace SE_StA_API.DataObject {
         [MinLength(1)]
         [MaxLength(50)]
         public string FirstName{ get; set; }
+       
         [Required]
         [MinLength(1)]
         [MaxLength(50)]

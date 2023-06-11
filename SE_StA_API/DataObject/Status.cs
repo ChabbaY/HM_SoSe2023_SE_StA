@@ -1,16 +1,14 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace SE_StA_API.DataObject {
-    public class Hotel {
+    public class Status {
         [Key]
-        public int HotelId { get; set; }
+        public int StatusId { get; set; }
 
         [Required]
         [MinLength(1)]
-        [MaxLength(50)]
+        [MaxLength(20)]
         public string Name { get; set; }
 
-        [MaxLength(1)]
-        public int Stars { get; set; }
     }
 }

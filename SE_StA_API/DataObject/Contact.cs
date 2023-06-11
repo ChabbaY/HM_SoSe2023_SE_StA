@@ -11,6 +11,6 @@ namespace SE_StA_API.DataObject {
         public string Salutation { get; set; }
 
         [MaxLength(50)]
-        public string Telefon { get; set; }
+        public string Phone { get; set; }
     }
 }

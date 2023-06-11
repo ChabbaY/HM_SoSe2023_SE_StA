@@ -73,18 +73,53 @@ class RegistrationRequest {
 
 class Address {
 	+Id : int [PK]
+	+CountryId : int [FK]
+	+TimezoneId : int [FK]
 	+Street : string
 	+HouseNr : string
 	+Postcode : string
 	+City : string
 	+Addition : string
 }
+class BankAccount {
+	+Id : int [PK]
+	+PaymentMethodId : int [FK]
+	+Iban : string
+}
+class Booking {
+	+Id : int [PK]
+	+CustomerId : int [FK]
+	+InvoiceId : int [FK]
+	+PaymentMethodId : int [FK]
+	+StatusId : int [FK]
+	+Nr : string
+	+Date : Datetime
+	+/Price : double
+}
+class BookingPositionRoom {
+	+Id : int [PK]
+	+RoomId : int [FK]
+	+BookingId : int [FK]
+	+Date : Datetime
+	+Price : double
+}
+class BookingPositionService {
+	+Id : int [PK]
+	+ServiceId : int [FK]
+	+BookingId : int [FK]
+	+DateTime : Datetime
+	+Price : double
+}
+class Cash {
+	+Id : int [PK]
+	+PaymentMethodId : int [FK]
+}
 class Contact {
 	+Id : int [PK]
 	+Title : string
 	+Telefone : string
 }
-class ContactAddress {
+class Contact_Address {
 	+ContactId : int [PK][FK]
 	+AddressId : int [PK][FK]
 }
@@ -94,22 +129,82 @@ class Country {
 	+Language : string
 	+Iso2 : string
 }
-class CountryTimezone {
+class Country_Timezone {
 	+CountryId : int [PK][FK]
 	+TimezoneId : int [PK][FK]
+}
+class CreditCard {
+	+Id : int [PK]
+	+PaymentMethodId : int [FK]
+	+CardNr : string
 }
 class Customer {
 	+Id : int [PK]
 	+ContactId : int [FK]
+	+UserId : int [FK]
 	+Nr : string
 	+FirstName : string
 	+LastName : string
 	+DateOfBirth : Datetime
 }
+class Flight {
+	+Id : int [PK]
+	+ServiceId : int [FK]
+	+FlightNr : string
+}
+class Hotel {
+	+Id : int [PK]
+	+ContactId : int [FK]
+	+Name : string
+}
+class Invoice {
+	+Id : int [PK]
+	+Nr : string
+}
+class PaymentMethod {
+	+Id : int [PK]
+	+CustomerId : int [FK]
+}
+class RentalCar {
+	+Id : int [PK]
+	+ServiceId : int [FK]
+	+CarModel : string
+}
+class Room {
+	+Id : int [PK]
+	+HotelId : int [FK]
+	+RoomTypeId : int [FK]
+	+Nr : string
+}
+class RoomType {
+	+Id: int [PK]
+	+Name : string
+	+DefaultPrice : double
+	+PersonsCount : int
+}
+class Service {
+	+Id : int [PK]
+	+ServiceTypeId : int [FK]
+}
+class ServiceType {
+	+Id : int [PK]
+	+Name : string
+	+DefaultPrice : double
+}
+class Status {
+	+Id : int [PK]
+	+Name : string
+}
 class Timezone {
 	+Id : int [PK]
 	+Name : string
 	+DiffUtc : int
+}
+class Wellness {
+	+Id : int [PK]
+	+ServiceId : int [FK]
+	+Name : string
+	+Duration : string
 }
 
 AspNetRoleClaims "*" --> "1" AspNetRoles : RoleId
@@ -119,8 +214,30 @@ AspNetUserRoles "*" --> "1" AspNetRoles : RoleId
 AspNetUserRoles "*" --> "1" AspNetUsers : UserId
 AspNetUserTokens "*" --> "1" AspNetUsers : UserId
 
-ContactAddress "*" --> "1" Address : AddressId
-ContactAddress "*" --> "1" Contact : ContactId
-CountryTimezone "*" --> "1" Country : CountryId
-CountryTimezone "*" --> "1" Timezone : TimezoneId
-Customer "1" o-- "1" Contact : ContactId
+Address "*" --> "1" Country : CountryId
+Address "*" --> "1" Timezone : TimezoneId
+BankAccount "*" --> "1" PaymentMethod : PaymentMethodId
+Booking "*" --> "1" Customer : CustomerId
+Booking "1" --> "1" Invoice : InvoiceId
+Booking "*" --> "1" PaymentMethod : PaymentMethodId
+Booking "*" --> "1" Status : StatusId
+BookingPositionRoom "1..10" --> "1" Booking : BookingId
+BookingPositionRoom "*" --> "1" Room : RoomId
+BookingPositionService "*" --> "1" Booking : BookingId
+BookingPositionService "*" --> "1" Service : ServiceId
+Cash "*" --> "1" PaymentMethod : PaymentMethodId
+Contact_Address "*" --> "1" Address : AddressId
+Contact_Address "*" --> "1" Contact : ContactId
+Country_Timezone "*" --> "1" Country : CountryId
+Country_Timezone "*" --> "1" Timezone : TimezoneId
+CreditCard "*" --> "1" PaymentMethod : PaymentMethodId
+Customer "1" --> "1" AspNetUsers : UserId
+Customer "1" --> "1" Contact : ContactId
+Flight "*" --> "1" Service : ServiceId
+Hotel "1" --> "1" Contact : ContactId
+PaymentMethod "*" --> "1" Customer : CustomerId
+RentalCar "*" --> "1" Service : ServiceId
+Room "*" --> "1" Hotel : HotelId
+Room "*" --> "1" RoomType : RoomTypeId
+Service "*" --> "1" ServiceType : ServiceTypeId
+Wellness "*" --> "1" Service : ServiceId

@@ -7,8 +7,14 @@ namespace SE_StA_API.DataObject {
 
         [Required]
         [MinLength(1)]
-        [MaxLength(50)]
+        [MaxLength(20)]
         public string RoomNumber { get; set; }
+
+        public int HotelId { get; internal set; }
+        
+        public int RoomTypeId { get; internal set; }
+        
+        public List<BookingPositionRoom> BookingPositionRooms { get; internal set; }
 
     }
 }

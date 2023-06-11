@@ -15,5 +15,10 @@ namespace SE_StA_API.DataObject {
         [MinLength(1)]
         [MaxLength(10)]
         public double price { get; set; }
+
+        public int ServiceId { get; internal set; }
+
+        public int BookingId { get; internal set; }
+
     }
 }

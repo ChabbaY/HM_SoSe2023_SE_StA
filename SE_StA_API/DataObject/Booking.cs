@@ -20,5 +20,17 @@ namespace SE_StA_API.DataObject {
         [MaxLength(10)]
         public double TotalPrice { get; set; }
 
+        public int CustomerId { get; internal set; }
+
+        public int InvoiceId { get; internal set; }
+        
+        public int PaymentMethodId { get; internal set; }
+
+        public int StatusId { get; internal set; }
+
+        public List<BookingPositionService> BookingPositionServices {get;internal set;}
+
+        public List<BookingPositionRooms> BookingPositionRooms {get;internal set;}
+
     }
 }

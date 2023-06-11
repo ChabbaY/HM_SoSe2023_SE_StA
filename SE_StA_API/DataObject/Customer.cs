@@ -17,5 +17,7 @@ namespace SE_StA_API.DataObject {
 
         [MaxLength(50)]
         public string BirthDay { get; set; }
+
+        public int ServiceId { get; internal set; }
     }
 }

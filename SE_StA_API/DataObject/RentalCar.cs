@@ -12,5 +12,7 @@ namespace SE_StA_API.DataObject {
         [MinLength(1)]
         [MaxLength(2)]
         public string Seats { get; set; }
+
+        public int ServiceId { get; internal set; }
     }
 }

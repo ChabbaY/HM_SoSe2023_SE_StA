@@ -15,5 +15,7 @@ namespace SE_StA_API.DataObject {
         [MaxLength(10)]
         public double DefaultPrice { get; set; }
 
+        public List<Service> services {get;internal set;}
+
     }
 }

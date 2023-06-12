@@ -9,8 +9,8 @@ export class RoomService {
 
   constructor(private http: HttpClient) { }
 
-  getRooms(hotelId: number) {
+  getRooms(hotelId: number): Room[] {
     //return this.http.get<Room[]>(`https://localhost:50001/api/hotels/${hotelId}/rooms`);
-    return [ {id: 1, hotelId: 1, roomTypeId: 1, nr: "1A"}, {id: 2, hotelId: 2, roomtypeId: 2, nr: "2B"} ]
+    return [ {id: 1, hotelId: hotelId, roomTypeId: 1, nr: "1A"}, {id: 2, hotelId: hotelId, roomTypeId: 2, nr: "2B"} ]
   }
 }

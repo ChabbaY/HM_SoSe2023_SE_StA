@@ -9,7 +9,7 @@ export class HotelService {
 
   constructor(private http: HttpClient) { }
 
-  getHotels() {
+  getHotels(): Hotel[] {
     //return this.http.get<Hotel[]>('https://localhost:50001/api/hotels');
     return [ {id: 1, contactId: 1, name: "A"}, {id: 2, contactId: 2, name: "B"} ];
   }

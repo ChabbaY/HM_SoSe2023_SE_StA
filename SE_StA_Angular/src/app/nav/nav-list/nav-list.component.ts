@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
 export class NavListComponent {
   home = { name: "Home", target: "home" };
   items = [
-    { name: "Home", target: "home" }
+    { name: "Account", target: "account" },
+    { name: "Hotels", target: "hotels" }
   ];
   subitems = undefined;
 

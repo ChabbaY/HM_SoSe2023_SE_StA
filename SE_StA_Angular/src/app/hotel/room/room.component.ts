@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { Room } from './room.model';
 import { RoomService } from './room.service';
@@ -11,19 +12,21 @@ import { RoomService } from './room.service';
 })
 export class RoomComponent implements OnInit, OnDestroy {
   hotelId = 0;
-  private sub: any;
   rooms: Room[] = [];
+  private subs: Subscription[] = [];
   constructor(private route: ActivatedRoute, private roomService: RoomService) { }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
+    this.subs.push(this.route.params.subscribe(params => {
       this.hotelId = +params['id']; //read id from route and convert into number
 
       this.rooms = this.roomService.getRooms(this.hotelId);
-    });
+    }));
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    this.subs.forEach((sub) => {
+      sub.unsubscribe();
+    });
   }
 }

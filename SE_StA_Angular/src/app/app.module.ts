@@ -13,6 +13,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { InfoModule } from './info/info.module';
 import { HotelModule } from './hotel/hotel.module';
+import { AccountModule } from './account/account.module';
+
+import { AccountInformationService } from './account-information.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,11 @@ import { HotelModule } from './hotel/hotel.module';
     FooterModule,
     NavModule,
     InfoModule,
-    HotelModule
+    HotelModule,
+    AccountModule
+  ],
+  providers: [
+    AccountInformationService
   ],
   bootstrap: [AppComponent]
 })

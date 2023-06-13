@@ -23,6 +23,10 @@ const routes: Routes = [
   ],
   exports: [
     RouterModule
+  ],
+  providers: [
+    HotelService,
+    RoomService
   ]
 })
 export class HotelModule { }

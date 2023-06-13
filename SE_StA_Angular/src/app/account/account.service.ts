@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { RegistrationRequest } from './register/registration-request.model';
-import { LoginRequest } from './login/login-request.model';
-import { LoginResponse } from './login/login-response.model';
+import { RegistrationRequest } from './models/registration-request.model';
+import { LoginRequest } from './models/login-request.model';
+import { LoginResponse } from './models/login-response.model';
 
 @Injectable({
   providedIn: 'root'

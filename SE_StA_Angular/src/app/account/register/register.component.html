@@ -1,1 +1,25 @@
-<p>register works!</p>
+<form [formGroup]="form">
+  <div class="form-row">
+    <label for="email" class="control-label required">E-Mail</label>
+    <input type="email" id="email" formControlName="email" />
+    <div *ngIf="isFieldInvalid('email')" class="has-error">
+      Please enter an email
+    </div>
+  </div>
+  <div class="form-row">
+    <label for="factorCode" class="control-label required">Username</label>
+    <input type="text" id="username" formControlName="username" />
+    <div *ngIf="isFieldInvalid('username')" class="has-error">
+      Please enter an username
+    </div>
+  </div>
+  <div class="form-row">
+    <label for="password" class="control-label required">Password</label>
+    <input type="password" id="password" formControlName="password" />
+    <div *ngIf="isFieldInvalid('password')" class="has-error">
+      Please enter a password
+    </div>
+  </div>
+
+  <button (click)="onSubmit()">Register</button>
+</form>

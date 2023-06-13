@@ -1,1 +1,25 @@
-<p>login works!</p>
+<form [formGroup]="form">
+  <div class="form-row">
+    <label for="email" class="control-label required">E-Mail</label>
+    <input type="email" id="email" formControlName="email" />
+    <div *ngIf="isFieldInvalid('email')" class="has-error">
+      Please enter an email
+    </div>
+  </div>
+  <div class="form-row">
+    <label for="password" class="control-label required">Password</label>
+    <input type="password" id="password" formControlName="password" />
+    <div *ngIf="isFieldInvalid('password')" class="has-error">
+      Please enter a password
+    </div>
+  </div>
+  <div class="form-row">
+    <label for="factorCode">2 Factor Code</label>
+    <input type="text" id="factorCode" formControlName="factorCode" />
+    <div *ngIf="isFieldInvalid('factorCode')" class="has-error">
+      Please enter a factor code
+    </div>
+  </div>
+
+  <button (click)="onSubmit()">Login</button>
+</form>

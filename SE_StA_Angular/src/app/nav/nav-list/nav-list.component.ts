@@ -9,7 +9,8 @@ export class NavListComponent {
   home = { name: "Home", target: "home" };
   items = [
     { name: "Account", target: "account" },
-    { name: "Hotels", target: "hotels" }
+    { name: "Hotels", target: "hotels" },
+    { name: "Customers", target: "customers" }
   ];
   subitems = undefined;
 

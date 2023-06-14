@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'account', loadChildren: () => import('./account/account.module').then(mod => mod.AccountModule) },
   { path: 'contact', loadChildren: () => import('./contact/contact.module').then(mod => mod.ContactModule) },
+  { path: 'customers', loadChildren: () => import('./customer/customer.module').then(mod => mod.CustomerModule) },
   { path: 'hotels', loadChildren: () => import('./hotel/hotel.module').then(mod => mod.HotelModule) },
   { path: 'info', loadChildren: () => import('./info/info.module').then(mod => mod.InfoModule) },
   { path: '**', component: NotFoundComponent }

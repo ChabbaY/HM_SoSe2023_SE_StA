@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { InfoModule } from './info/info.module';
 import { HotelModule } from './hotel/hotel.module';
 import { AccountModule } from './account/account.module';
+import { CustomerModule } from './customer/customer.module';
 
 import { AccountInformationService } from './account-information.service';
 
@@ -33,7 +34,8 @@ import { AccountInformationService } from './account-information.service';
     NavModule,
     InfoModule,
     HotelModule,
-    AccountModule
+    AccountModule,
+    CustomerModule
   ],
   providers: [
     AccountInformationService

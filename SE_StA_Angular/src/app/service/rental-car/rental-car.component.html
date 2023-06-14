@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Car Model</th>
+      <th>Service Type</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let car of rentalCars">
+      <td>{{car.id}}</td>
+      <td>{{car.carModel}}</td>
+      <td>{{car.service.serviceType.name}}</td>
+      <td>{{car.service.serviceType.defaultPrice}} €</td>
+    </tr>
+  </tbody>
+</table>

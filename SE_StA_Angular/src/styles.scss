@@ -162,6 +162,12 @@ table {
   width: 100%;
   table-layout: fixed;
 }
+thead {
+  text-align: left;
+  background-color: var(--primaryColor);
+  color: var(--secundaryColor);
+  text-indent: 0.25rem;
+}
 
 /*
 CLASSES

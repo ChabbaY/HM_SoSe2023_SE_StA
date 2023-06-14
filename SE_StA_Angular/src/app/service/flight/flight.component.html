@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Flight Nr</th>
+      <th>Service Type</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let flight of flights">
+      <td>{{flight.id}}</td>
+      <td>{{flight.flightNr}}</td>
+      <td>{{flight.service.serviceType.name}}</td>
+      <td>{{flight.service.serviceType.defaultPrice}} €</td>
+    </tr>
+  </tbody>
+</table>

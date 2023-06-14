@@ -1,0 +1,19 @@
+<h1>Hotels Overview</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Contact</th>
+      <th>Name</th>
+      <th>Rooms</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let hotel of hotels">
+      <td>{{hotel.id}}</td>
+      <td><button routerLink="../contact/{{hotel.contactId}}">View Conatct</button></td>
+      <td>{{hotel.name}}</td>
+      <td><button routerLink="./{{hotel.id}}/rooms">View Rooms</button></td>
+    </tr>
+  </tbody>
+</table>

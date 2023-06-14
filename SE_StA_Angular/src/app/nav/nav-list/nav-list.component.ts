@@ -10,6 +10,7 @@ export class NavListComponent {
   items = [
     { name: "Account", target: "account" },
     { name: "Hotels", target: "hotels" },
+    { name: "Services", target: "services" },
     { name: "Customers", target: "customers" }
   ];
   subitems = undefined;

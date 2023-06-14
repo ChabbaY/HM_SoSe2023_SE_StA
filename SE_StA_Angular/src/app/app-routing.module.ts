@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'customers', loadChildren: () => import('./customer/customer.module').then(mod => mod.CustomerModule) },
   { path: 'hotels', loadChildren: () => import('./hotel/hotel.module').then(mod => mod.HotelModule) },
   { path: 'info', loadChildren: () => import('./info/info.module').then(mod => mod.InfoModule) },
+  { path: 'services', loadChildren: () => import('./service/service.module').then(mod => mod.ServiceModule) },
   { path: '**', component: NotFoundComponent }
 ];
 

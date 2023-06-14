@@ -11,9 +11,10 @@ import { ServiceService } from './service.service';
 
 const routes: Routes = [
   { path: '', component: ServiceComponent, children: [
-    { path: '', component: FlightComponent, pathMatch: 'full' },
-    { path: 'car', component: RentalCarComponent },
-    { path: 'wellness', component: WellnessComponent }
+    { path: '', redirectTo: 'flights', pathMatch: 'full' },
+    { path: 'flights', component: FlightComponent },
+    { path: 'cars', component: RentalCarComponent },
+    { path: 'wellnesses', component: WellnessComponent }
   ]}
 ];
 

@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-import { Booking } from './booking.model';
+import { Booking } from '../models/booking.model';
 import { BookingService } from './booking.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class BookingComponent implements OnInit, OnDestroy {
     this.subs.push(this.route.params.subscribe(params => {
       this.customerId = +params['id']; //read id from route and convert into number
 
-      this.bookings = this.bookingService.getRooms(this.customerId);
+      this.bookings = this.bookingService.getBookings(this.customerId);
     }));
   }
 

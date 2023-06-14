@@ -1,1 +1,20 @@
-<p>wellness works!</p>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Duration</th>
+      <th>Service Type</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let wellness of wellnesses">
+      <td>{{wellness.id}}</td>
+      <td>{{wellness.name}}</td>
+      <td>{{wellness.duration}}</td>
+      <td>{{wellness.service.serviceType.name}}</td>
+      <td>{{wellness.service.serviceType.defaultPrice}} €</td>
+    </tr>
+  </tbody>
+</table>

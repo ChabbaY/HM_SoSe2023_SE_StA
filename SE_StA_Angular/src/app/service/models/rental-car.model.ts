@@ -1,4 +1,4 @@
-import { Service } from "../service.model";
+import { Service } from "./service.model";
 
 export interface RentalCar {
     id: number,

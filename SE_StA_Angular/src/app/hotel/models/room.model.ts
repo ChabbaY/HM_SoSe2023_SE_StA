@@ -1,6 +1,8 @@
+import { RoomType } from "./room-type.model";
+
 export interface Room {
     id: number,
     hotelId: number,
-    roomTypeId: number,
+    roomType: RoomType,
     nr: string
 }

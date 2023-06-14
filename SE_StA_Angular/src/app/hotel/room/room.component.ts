@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-import { Room } from './room.model';
+import { Room } from '../models/room.model';
 import { RoomService } from './room.service';
 
 @Component({

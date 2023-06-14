@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Flight } from './flight/flight.model';
-import { RentalCar } from './rental-car/rental-car.model';
-import { Wellness } from './wellness/wellness.model';
+import { Flight } from './models/flight.model';
+import { RentalCar } from './models/rental-car.model';
+import { Wellness } from './models/wellness.model';
 
 @Injectable({
   providedIn: 'root'

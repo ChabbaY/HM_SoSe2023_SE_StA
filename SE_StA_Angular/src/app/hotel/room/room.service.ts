@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Room } from './room.model';
+import { Room } from '../models/room.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +14,22 @@ export class RoomService {
       {
         id: 1,
         hotelId: hotelId,
-        roomTypeId: 1,
+        roomType: {
+          id: 1,
+          name: "normal",
+          defaultPrice: 100,
+          personsCount: 2
+        },
         nr: "1A"
       }, {
         id: 2,
         hotelId: hotelId,
-        roomTypeId: 2,
+        roomType: {
+          id: 2,
+          name: "special",
+          defaultPrice: 120,
+          personsCount: 2
+        },
         nr: "2B"
       }
     ];

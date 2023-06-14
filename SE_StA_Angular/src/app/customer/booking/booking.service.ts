@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Booking } from './booking.model';
+import { Booking } from '../models/booking.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ import { Booking } from './booking.model';
 export class BookingService {
   constructor(private http: HttpClient) { }
 
-  getRooms(customerId: number): Booking[] {
+  getBookings(customerId: number): Booking[] {
     //return this.http.get<Booking[]>(`https://localhost:50001/api/customers/${customerId}/bookings`);
     return [
       {

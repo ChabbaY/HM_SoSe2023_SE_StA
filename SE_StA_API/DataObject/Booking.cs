@@ -30,7 +30,7 @@ namespace SE_StA_API.DataObject {
 
         public List<BookingPositionService> bookingPositionServices {get;internal set;}
 
-        public List<BookingPositionRooms> bookingPositionRooms {get;internal set;}
+        public List<BookingPositionRoom> bookingPositionRooms {get;internal set;}
 
     }
 }

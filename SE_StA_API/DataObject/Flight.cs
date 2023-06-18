@@ -12,5 +12,9 @@ namespace SE_StA_API.DataObject {
         
         [MaxLength(30)]
         public string Destination { get; set; }
+
+        public int ServiceId { get; internal set; }
+
+
     }
 }

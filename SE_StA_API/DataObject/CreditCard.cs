@@ -10,5 +10,6 @@ namespace SE_StA_API.DataObject {
         [MaxLength(20)]
         public string CardNumber { get; set; }
 
+        public int PaymentMethod { get; internal set; }
     }
 }

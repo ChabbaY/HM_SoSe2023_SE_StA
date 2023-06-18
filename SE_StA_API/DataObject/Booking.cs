@@ -28,9 +28,9 @@ namespace SE_StA_API.DataObject {
 
         public int StatusId { get; internal set; }
 
-        public List<BookingPositionService> BookingPositionServices {get;internal set;}
+        public List<BookingPositionService> bookingPositionServices {get;internal set;}
 
-        public List<BookingPositionRooms> BookingPositionRooms {get;internal set;}
+        public List<BookingPositionRooms> bookingPositionRooms {get;internal set;}
 
     }
 }

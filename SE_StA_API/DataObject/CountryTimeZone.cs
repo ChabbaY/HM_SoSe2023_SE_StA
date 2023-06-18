@@ -5,6 +5,10 @@ namespace SE_StA_API.DataObject {
         [Key]
         public int CountryTimeZoneId { get; set; }
 
+        public int CountryId { get; internal set; }
+
+        public int TimeZoneId { get; internal set; }
+
         
     }
 }

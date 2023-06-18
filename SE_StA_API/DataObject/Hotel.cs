@@ -15,6 +15,6 @@ namespace SE_StA_API.DataObject {
 
         public int ContactId { get; internal set; }
 
-        public List<Room> Rooms { get; internal set; }
+        public List<Room> rooms { get; internal set; }
     }
 }

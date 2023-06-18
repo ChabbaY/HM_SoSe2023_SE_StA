@@ -10,5 +10,7 @@ namespace SE_StA_API.DataObject {
         [MaxLength(22)]
         public string Iban { get; set; }
 
+        public int PaymentMethodId { get; internal set; }
+
     }
 }

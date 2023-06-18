@@ -27,5 +27,11 @@ namespace SE_StA_API.DataObject {
 
         [MaxLength(20)]
         public string AddressAddition { get; set; }
+
+        public int CountryId {get; internal set; }
+        public int TimeZoneId {get; internal set; }
+
+        public List<ContactAddress> contactAdresses {get; internal set;}
+
     }
 }

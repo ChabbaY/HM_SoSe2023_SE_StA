@@ -18,6 +18,6 @@ namespace SE_StA_API.DataObject {
         [MaxLength(2)]
          public int PersonsCount { get; set; }
 
-         public List<Room> Rooms { get; internal set; }
+         public List<Room> rooms { get; internal set; }
     }
 }

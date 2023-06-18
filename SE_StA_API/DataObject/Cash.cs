@@ -5,5 +5,7 @@ namespace SE_StA_API.DataObject {
         [Key]
         public int CashId { get; set; }
 
+        public int PaymentMethod { get; internal set; }
+
     }
 }

@@ -141,6 +141,18 @@
             </summary>
             <param name="cid">CountryId</param>
         </member>
+        <member name="T:SE_StA_API.Migrations.migrationv0">
+            <inheritdoc />
+        </member>
+        <member name="M:SE_StA_API.Migrations.migrationv0.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SE_StA_API.Migrations.migrationv0.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SE_StA_API.Migrations.migrationv0.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
         <member name="P:SE_StA_API.Store.ApplicationContext.Countries">
             <summary>
             database table Dummies

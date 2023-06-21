@@ -71,9 +71,9 @@ namespace SE_StA_API.Authentication {
         private SigningCredentials CreateSigningCredentials() {
             return new SigningCredentials(
                 new SymmetricSecurityKey(
-                    Encoding.UTF8.GetBytes("G6Gn&nCA$u8mna%4")
+                    Encoding.UTF8.GetBytes("9Yacv&DbDaK9bh&en$bcojwycAHxFncqs2tLG$PHgz6AumSzCnW&89Ss8ebBhqq!")
                 ),
-                SecurityAlgorithms.HmacSha256
+                SecurityAlgorithms.HmacSha512
             );
         }
     }

@@ -5,15 +5,15 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { AccountService } from '../account.service';
-import { RegistrationRequest } from '../models/registration-request.model';
+import { ValidationRequest } from '../models/validation-request.model';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: 'app-validate',
+  templateUrl: './validate.component.html',
+  styleUrls: ['./validate.component.scss']
 })
-export class RegisterComponent implements OnInit, OnDestroy {
-  registrationRequest: RegistrationRequest = { email: '', username: '', password: '' };
+export class ValidateComponent implements OnInit, OnDestroy {
+  validationRequest: ValidationRequest = { email: '', token: '' };
   form!: FormGroup;
   private subs: Subscription[] = [];
   constructor(private accountService: AccountService,
@@ -23,16 +23,15 @@ export class RegisterComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+      token: ['', Validators.required]
     });
   }
 
   onSubmit(): void {
     this.form.markAllAsTouched();
     if (this.form.valid) {
-      this.registrationRequest = this.form.value as RegistrationRequest;
-      this.register(this.registrationRequest);
+      this.validationRequest = this.form.value as ValidationRequest;
+      this.validate(this.validationRequest);
       this.form.reset();
     }
   }
@@ -43,11 +42,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
     });
   }
 
-  register(registrationRequest: RegistrationRequest) {
-    this.subs.push(this.accountService.register(registrationRequest).subscribe(
+  validate(validationRequest: ValidationRequest) {
+    this.subs.push(this.accountService.validate(validationRequest).subscribe(
       () => {
-        this.router.navigate(["account", "validate"]);
-        alert("You have been sent an E-Mail, please validate it with the token");
+        this.router.navigate(["account", "login"]);
+        alert("Your E-Mail has been validated. You can now log in!");
       },
       (error: HttpErrorResponse) => {
         console.log(error);

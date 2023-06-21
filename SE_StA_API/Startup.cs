@@ -30,7 +30,8 @@ namespace SE_StA_API {
             services.AddMvc();
 
             services.AddDbContext<ApplicationContext>(options => {
-                options.UseNpgsql(Configuration["ConnectionStrings:DBConnection"]);
+                options.UseMySql(Configuration["ConnectionStrings:DBConnection"],
+                    ServerVersion.AutoDetect(Configuration["ConnectionStrings:DBConnection"]));
             });
 
             services.AddSwaggerGen(options => {

@@ -1,0 +1,25 @@
+input {
+    margin-left: 1rem;
+    width: 100%;
+}
+
+.form-row {
+    margin: 0.5rem;
+    width: 50%;
+}
+
+.control-label.required:after {
+  color: #d00;
+  content: "*";
+  position: relative;
+  margin-left: 5px;
+  top: 0px;
+}
+
+.has-error {
+    color: red;
+}
+
+input.ng-invalid.ng-touched {
+    background-color: red;
+}

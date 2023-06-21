@@ -1,0 +1,19 @@
+<h1>Rooms Overview</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nr</th>
+      <th>RoomType</th>
+      <th>max. Persons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let room of rooms">
+      <td>{{room.id}}</td>
+      <td>{{room.nr}}</td>
+      <td>{{room.roomType.name}}</td>
+      <td>{{room.roomType.personsCount}}</td>
+    </tr>
+  </tbody>
+</table>

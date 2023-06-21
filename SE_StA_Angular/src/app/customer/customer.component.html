@@ -1,0 +1,25 @@
+<h1>Customers Overview</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nr</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Date of Birth</th>
+      <th>Contact</th>
+      <th>User</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers">
+      <td>{{customer.id}}</td>
+      <td>{{customer.nr}}</td>
+      <td>{{customer.firstName}}</td>
+      <td>{{customer.lastName}}</td>
+      <td>{{customer.dateOfBirth}}</td>
+      <td><button routerLink="../contact/{{customer.contactId}}">View Conatct</button></td>
+      <td>{{customer.userId}}</td>
+    </tr>
+  </tbody>
+</table>

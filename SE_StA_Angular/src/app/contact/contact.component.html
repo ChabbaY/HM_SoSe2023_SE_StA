@@ -1,0 +1,29 @@
+<h1>Contact</h1>
+<p>Telefone: {{contact.telefone}}</p>
+<p>Addresses:</p>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Street</th>
+      <th>House Nr.</th>
+      <th>Postcode</th>
+      <th>City</th>
+      <th>Addition</th>
+      <th>Country</th>
+      <th>Timezone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let address of contact.addresses">
+      <td>{{address.id}}</td>
+      <td>{{address.street}}</td>
+      <td>{{address.houseNr}}</td>
+      <td>{{address.postcode}}</td>
+      <td>{{address.city}}</td>
+      <td>{{address.addition}}</td>
+      <td>{{address.country.name}}</td>
+      <td>{{address.timezone.name}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -2,22 +2,32 @@ version: '3.4'
 
 services:
   postgres:
-    container_name: postgres
-    image: postgres
+    container_name: mysql
+    image: mysql
     restart: always
     environment:
-      - POSTGRES_USER=api_user
-      - POSTGRES_PASSWORD=BaqV7knGfeuYzC
-      - POSTGRES_DB=api
+      - MYSQL_ROOT_PASSWORD=BaqV7knGfeuYzC
+      - MYSQL_DATABASE=api
     volumes:
-      - ./db:/var/lib/postgresql/data
+      - ./db:/var/lib/mysql
       - ./init:/docker-entrypoint-initdb.d
     ports:
-      - "5432:5432"
+      - "3306:3306"
+
+  phpAdmin:
+    container_name: phpmyadmin
+    image: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+    ports:
+      - "8080:80"
 
   se_sta_api:
     container_name: api
     image: ${DOCKER_REGISTRY-}sestaapi
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://[::]:443;http://[::]:80
     build:
       context: ./SE_StA_API
       dockerfile: Dockerfile

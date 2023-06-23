@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { urlConstant } from 'src/constants/url-constant';
 
 import { RegistrationRequest } from './models/registration-request.model';
 import { LoginRequest } from './models/login-request.model';
@@ -13,14 +14,14 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   register(request: RegistrationRequest) {
-    return this.http.post('https://localhost:50001/auth/register', request);
+    return this.http.post(`${urlConstant.apiPath}/auth/register`, request);
   }
 
   login(request: LoginRequest) {
-    return this.http.post<LoginResponse>('https://localhost:50001/auth/login', request);
+    return this.http.post<LoginResponse>(`${urlConstant.apiPath}/auth/login`, request);
   }
 
   validate(request: ValidationRequest) {
-    return this.http.get(`https://localhost:50001/auth/validate?token=${request.token}&email=${request.email}`);
+    return this.http.get(`${urlConstant.apiPath}/auth/validate?token=${request.token}&email=${request.email}`);
   }
 }

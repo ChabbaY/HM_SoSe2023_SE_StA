@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations;
 namespace SE_StA_API.DataObject {
     public class Address {
         [Key]
-        public int AdressId { get; set; }
+        public int AddressId { get; set; }
 
         [Required]
         [MinLength(1)]
         [MaxLength(40)]
-        public string Steet { get; set; }
+        public string Street { get; set; }
 
         [Required]
         [MinLength(1)]

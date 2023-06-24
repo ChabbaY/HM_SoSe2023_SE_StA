@@ -15,5 +15,6 @@ namespace SE_StA_API.Store {
         /// database table Dummies
         /// </summary>
         public DbSet<Country> Countries { get; set; }
+        public DbSet<Address> Addresses { get; set; }
     }
 }

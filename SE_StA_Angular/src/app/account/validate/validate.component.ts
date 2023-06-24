@@ -1,8 +1,8 @@
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { catchError, Subscription, throwError } from 'rxjs';
 
 import { AccountService } from '../account.service';
 import { ValidationRequest } from '../models/validation-request.model';
@@ -43,8 +43,8 @@ export class ValidateComponent implements OnInit, OnDestroy {
   }
 
   validate(validationRequest: ValidationRequest) {
-    this.subs.push(this.accountService.validate(validationRequest).subscribe(
-      () => {
+    /*this.subs.push(this.accountService.validate(validationRequest).subscribe(
+      (response) => {
         this.router.navigate(["account", "login"]);
         alert("Your E-Mail has been validated. You can now log in!");
       },
@@ -52,12 +52,32 @@ export class ValidateComponent implements OnInit, OnDestroy {
         console.log(error);
         alert("Something went wrong: " + JSON.stringify(error.error));
       }
-    ));
+    ));*/
+    this.subs.push(this.accountService.validate(validationRequest).pipe(
+      catchError((error) => {
+        console.log(error);
+        return throwError(() => new Error(error));
+      })
+    ).subscribe((response) => {
+      console.log(response);
+    }));
   }
 
   //helper methods
 
   isFieldInvalid(field: string) {
     return (!this.form.get(field)?.valid && this.form.get(field)?.touched);
+  }
+
+  handleError(err: HttpErrorResponse) {
+    if (err.status === 400) {//Bad Request
+      console.log("Confirmation failed");
+    }
+    else if (err.status === 200) {//Ok
+      return;
+    }
+    else {
+      console.log(err);
+    }
   }
 }

@@ -135,6 +135,10 @@ namespace SE_StA_API.Authentication {
                 ModelState.AddModelError("Confirmation failed", "User not found");
                 return BadRequest(ModelState);
             } else {
+                var confirmed = await _userManager.IsEmailConfirmedAsync(user);
+                if (confirmed) {
+                    return Ok("Email bereits bestätigt!");
+                }
                 var result = await _userManager.ConfirmEmailAsync(user, token);
                 if (result.Succeeded) {
                     result = await _userManager.AddToRoleAsync(user, "User");

@@ -22,6 +22,6 @@ export class AccountService {
   }
 
   validate(request: ValidationRequest) {
-    return this.http.get(`${urlConstant.apiPath}/auth/validate?token=${request.token}&email=${request.email}`);
+    return this.http.get(`${urlConstant.apiPath}/auth/validate?token=${encodeURIComponent(request.token)}&email=${encodeURIComponent(request.email)}`);
   }
 }

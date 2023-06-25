@@ -1,0 +1,54 @@
+<ng-container *ngIf="username !== ''; then loggedIn; else loggedOut"></ng-container>
+
+<ng-template #loggedIn>
+  <div>
+    <p>Hi {{username}}</p>
+    <p>Two Factor Auth enabled: {{enabled}}</p>
+    <ng-container *ngIf="enabled; then isEnabled; else isDisabled"></ng-container>
+    {{feedback}}
+  </div>
+</ng-template>
+<ng-template #loggedOut>
+  <div>
+    <p>You are not logged in! Please log in in order to adjust your settings.</p>
+  </div>
+</ng-template>
+
+<ng-template #isEnabled>
+  <div>
+    <form [formGroup]="disableForm">
+      <div class="form-row">
+        <label for="factorCode">2 Factor Code</label>
+        <input type="number" id="factorCode" formControlName="factorCode" />
+        <div *ngIf="isFieldInvalidDisable('factorCode')" class="has-error">
+          Please enter a factor code (number)
+        </div>
+      </div>
+      <button (click)="onSubmitDisable()">Disable</button>
+    </form>
+  </div>
+</ng-template>
+<ng-template #isDisabled>
+  <div>
+    <button (click)="setup()">Enable</button><br />
+    <ng-container *ngIf="inSetup; then isInSetup"></ng-container>
+  </div>
+</ng-template>
+
+<ng-template #isInSetup>
+  <div>
+    <p>Enter the secret Key in your Two Factor App: {{key}}</p>
+    <p>Or just scan the QR-Code below:</p>
+    <img [src]="qr_url" />
+    <form [formGroup]="enableForm">
+      <div class="form-row">
+        <label for="factorCode">2 Factor Code</label>
+        <input type="number" id="factorCode" formControlName="factorCode" />
+        <div *ngIf="isFieldInvalidEnable('factorCode')" class="has-error">
+          Please enter a factor code (number)
+        </div>
+      </div>
+      <button (click)="onSubmitEnable()">Complete Setup</button>
+    </form>
+  </div>
+</ng-template>

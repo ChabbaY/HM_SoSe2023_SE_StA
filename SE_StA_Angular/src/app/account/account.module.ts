@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ValidateComponent } from './validate/validate.component';
+import { TwoFactorComponent } from './two-factor/two-factor.component';
 
 import { AccountService } from './account.service';
 
@@ -19,7 +20,8 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'validate', component: ValidateComponent }
+      { path: 'validate', component: ValidateComponent },
+      { path: 'twofactor', component: TwoFactorComponent }
     ]
   }
 ];
@@ -30,7 +32,8 @@ const routes: Routes = [
     DashboardComponent,
     LoginComponent,
     RegisterComponent,
-    ValidateComponent
+    ValidateComponent,
+    TwoFactorComponent
   ],
   imports: [
     CommonModule,

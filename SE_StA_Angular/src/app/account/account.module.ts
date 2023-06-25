@@ -7,6 +7,7 @@ import { AccountComponent } from './account.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ValidateComponent } from './validate/validate.component';
 
 import { AccountService } from './account.service';
 
@@ -17,7 +18,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent }
+      { path: 'register', component: RegisterComponent },
+      { path: 'validate', component: ValidateComponent }
     ]
   }
 ];
@@ -27,7 +29,8 @@ const routes: Routes = [
     AccountComponent,
     DashboardComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ValidateComponent
   ],
   imports: [
     CommonModule,

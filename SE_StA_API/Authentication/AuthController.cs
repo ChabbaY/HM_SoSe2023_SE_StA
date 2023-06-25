@@ -45,23 +45,23 @@ namespace SE_StA_API.Authentication {
                 request.Password
             );
 
-            //email verification
-            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            var confirmationLink = Url.Action(nameof(ConfirmEmail), "Auth", new {
-                token,
-                email = user.Email
-            }, Request.Scheme);
-            var message = new Message(
-                new IdentityUser[] { user },
-                "Account Verification",
-                "Please verify your email.<br />" +
-                $"Your Token is: {token}<br />" +
-                "and expires in about 2 hours.<br />" +
-                $"You can just follow this link: {confirmationLink}",
-                null);
-            await _emailSender.SendEmailAsync(message);
-
             if (result.Succeeded) {
+                //email verification
+                var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                var confirmationLink = Url.Action(nameof(ConfirmEmail), "Auth", new {
+                    token,
+                    email = user.Email
+                }, Request.Scheme);
+                var message = new Message(
+                    new IdentityUser[] { user },
+                    "Account Verification",
+                    "Please verify your email.<br />" +
+                    $"Your Token is: {token}<br />" +
+                    "and expires in about 2 hours.<br />" +
+                    $"You can just follow this link: {confirmationLink}",
+                    null);
+                await _emailSender.SendEmailAsync(message);
+
                 request.Password = "";
                 return CreatedAtAction(nameof(Register), new { email = request.Email }, request);
             }
@@ -135,6 +135,10 @@ namespace SE_StA_API.Authentication {
                 ModelState.AddModelError("Confirmation failed", "User not found");
                 return BadRequest(ModelState);
             } else {
+                var confirmed = await _userManager.IsEmailConfirmedAsync(user);
+                if (confirmed) {
+                    return Ok("Email bereits bestätigt!");
+                }
                 var result = await _userManager.ConfirmEmailAsync(user, token);
                 if (result.Succeeded) {
                     result = await _userManager.AddToRoleAsync(user, "User");

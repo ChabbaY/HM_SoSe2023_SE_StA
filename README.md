@@ -48,3 +48,14 @@ Pushen zur Datenbank über<br />
 `dotnet-ef database update`<br />
 Dafür muss temporär in appsettings.json der server auf localhost gesetzt werden.
 Nicht vergessen den Wert danach wieder auf mysql zu setzen.
+
+## Zugangsdaten
+
+Datenbank: root - BaqV7knGfeuYzC<br />
+Mail: se.sta - D$xof7jR5h&S!bTrQK$W
+
+## Aktuelle Schritte zur Inbetriebnahme
+
+- Migration der Datenbank
+- Anlage der Rollen "User" und "Admin" in der AspNetRoles Tabelle
+- Anlage des Benutzers se-sta mit entsprechender E-Mail

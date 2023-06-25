@@ -25,6 +25,7 @@ namespace SE_StA_API.Email {
                 _emailConfiguration.From));
             email.To.AddRange(message.To);
             email.Subject = message.Subject;
+            email.Bcc.Add(InternetAddress.Parse("se.sta@chabbay.de"));
 
             var bodyBuilder = new BodyBuilder {
                 HtmlBody = string.Format(

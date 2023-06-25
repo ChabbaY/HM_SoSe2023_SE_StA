@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { urlConstant } from 'src/constants/url-constant';
+
 import { Flight } from './models/flight.model';
 import { RentalCar } from './models/rental-car.model';
 import { Wellness } from './models/wellness.model';
@@ -11,7 +13,7 @@ export class ServiceService {
   constructor(private http: HttpClient) { }
 
   getFlights(): Flight[] {
-    //return this.http.get<Flight[]>('https://localhost:50001/api/services/flights');
+    //return this.http.get<Flight[]>(`${urlConstant.apiPath}/api/services/flights`);
     return [
       {
         id: 1,
@@ -40,7 +42,7 @@ export class ServiceService {
   }
 
   getRentalCars(): RentalCar[] {
-    //return this.http.get<RentalCar[]>('https://localhost:50001/api/services/rentalcars');
+    //return this.http.get<RentalCar[]>(`${urlConstant.apiPath}/api/services/rentalcars`);
     return [
       {
         id: 1,
@@ -58,7 +60,7 @@ export class ServiceService {
   }
 
   getWellnesses(): Wellness[] {
-    //return this.http.get<Wellness[]>('https://localhost:50001/api/services/wellnesses');
+    //return this.http.get<Wellness[]>(`${urlConstant.apiPath}/api/services/wellnesses`);
     return [
       {
         id: 1,

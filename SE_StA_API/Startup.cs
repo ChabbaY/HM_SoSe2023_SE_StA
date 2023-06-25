@@ -1,7 +1,7 @@
 using System.Reflection;
 using System.Text;
 using SE_StA_API.Authentication;
-//using SE_StA_API.Email;
+using SE_StA_API.Email;
 using SE_StA_API.Store;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -97,19 +97,19 @@ namespace SE_StA_API {
 
             services.AddScoped<TokenService, TokenService>();
 
-            /*services.AddSingleton(new EmailConfiguration {
-                From = "",
-                FromDisplayName = "",
-                SmtpServer = "",
+            services.AddSingleton(new EmailConfiguration {
+                From = "se.sta@chabbay.de",
+                FromDisplayName = "Software Engineering II Studienarbeit",
+                SmtpServer = "smtp.chabbay.de",
                 Port = 587,
-                Username = "",
-                Password = ""
+                Username = "se.sta@chabbay.de",
+                Password = "D$xof7jR5h&S!bTrQK$W"
             });
-            services.AddScoped<IEmailSender, EmailSender>();*/
+            services.AddScoped<IEmailSender, EmailSender>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationContext context) {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }

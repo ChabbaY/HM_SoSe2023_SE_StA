@@ -106,6 +106,226 @@
             Returns wether or not 2FA is enabled (for the current user).
             </summary>
         </member>
+        <member name="T:SE_StA_API.Controllers.AddressController">
+            <summary>
+            This endpoint manages all operations for addresses.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.AddressController.GetAllAddresses">
+            <summary>
+            Returns all addresses.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.AddressController.GetAddress(System.Int32)">
+            <summary>
+            Returns the address with a given id.
+            </summary>
+            <param name="aid">AddressID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.AddressController.AddAddress(SE_StA_API.DataObject.Address)">
+            <summary>
+            Adds an address.
+            </summary>
+            <param name="value">new Adress</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.AddressController.UpdateAddress(System.Int32,SE_StA_API.DataObject.Address)">
+            <summary>
+            Updates an address.
+            </summary>
+            <param name="aid">AddressId</param>
+            <param name="value">new Address</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.AddressController.DeleteAddress(System.Int32)">
+            <summary>
+            Delete an address.
+            </summary>
+            <param name="aid">AddressId</param>
+        </member>
+        <member name="T:SE_StA_API.Controllers.BankAccountController">
+            <summary>
+            This endpoint manages all operations for bank accounts.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BankAccountController.GetAllBankAccounts">
+            <summary>
+            Returns all bank accounts.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BankAccountController.GetBankAccount(System.Int32)">
+            <summary>
+            Returns the bank account with a given id.
+            </summary>
+            <param name="baid">BankAccountID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BankAccountController.AddBankAccount(SE_StA_API.DataObject.BankAccount)">
+            <summary>
+            Adds a bank account.
+            </summary>
+            <param name="value">new Bank Account</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BankAccountController.UpdateBankAccount(System.Int32,SE_StA_API.DataObject.BankAccount)">
+            <summary>
+            Updates a bank account.
+            </summary>
+            <param name="baid">BankAccountId</param>
+            <param name="value">new BankAccount</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BankAccountController.DeleteBankAccount(System.Int32)">
+            <summary>
+            Delete a bank account.
+            </summary>
+            <param name="baid">BankACcountId</param>
+        </member>
+        <member name="T:SE_StA_API.Controllers.BookingController">
+            <summary>
+            This endpoint manages all operations for bookings.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BookingController.GetAllBookings">
+            <summary>
+            Returns all bookings.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BookingController.GetBooking(System.Int32)">
+            <summary>
+            Returns the booking with a given id.
+            </summary>
+            <param name="bid">BookingID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BookingController.AddBooking(SE_StA_API.DataObject.Booking)">
+            <summary>
+            Adds a booking.
+            </summary>
+            <param name="value">new Booking</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BookingController.UpdateBooking(System.Int32,SE_StA_API.DataObject.Booking)">
+            <summary>
+            Updates a booking.
+            </summary>
+            <param name="bid">BookingId</param>
+            <param name="value">new Booking</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BookingController.DeleteBooking(System.Int32)">
+            <summary>
+            Delete a booking.
+            </summary>
+            <param name="bid">BookingId</param>
+        </member>
+        <member name="T:SE_StA_API.Controllers.BookingPositionRoomController">
+            <summary>
+            This endpoint manages all operations for booking position rooms.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BookingPositionRoomController.GetAllBookingPositionRooms">
+            <summary>
+            Returns all booking position rooms.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BookingPositionRoomController.GetBookingPositionRoom(System.Int32)">
+            <summary>
+            Returns the booking position room with a given id.
+            </summary>
+            <param name="bprid">BookingPositionRoomID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BookingPositionRoomController.AddBookingPositionRoom(SE_StA_API.DataObject.BookingPositionRoom)">
+            <summary>
+            Adds a Booking Position Room.
+            </summary>
+            <param name="value">new Booking Position Room</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BookingPositionRoomController.UpdateBookingPositionRoom(System.Int32,SE_StA_API.DataObject.BookingPositionRoom)">
+            <summary>
+            Updates a booking position room.
+            </summary>
+            <param name="bprid">BookingPositionRoomId</param>
+            <param name="value">new BookingPositionRoom</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BookingPositionRoomController.DeleteBookingPositionRoom(System.Int32)">
+            <summary>
+            Delete a booking position room.
+            </summary>
+            <param name="bprid">BookingPositionRoomId</param>
+        </member>
+        <member name="T:SE_StA_API.Controllers.BookingPositionServiceController">
+            <summary>
+            This endpoint manages all operations for booking positions servoces.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BookingPositionServiceController.GetAllBookingPositionServices">
+            <summary>
+            Returns all booking position services.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BookingPositionServiceController.GetBookingPositionService(System.Int32)">
+            <summary>
+            Returns the booking position service with a given id.
+            </summary>
+            <param name="bpsid">BookingPositionServiceID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BookingPositionServiceController.AddBookingPositionService(SE_StA_API.DataObject.BookingPositionService)">
+            <summary>
+            Adds a Booking Position Service.
+            </summary>
+            <param name="value">new Booking Position Service</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BookingPositionServiceController.UpdateBookingPositionService(System.Int32,SE_StA_API.DataObject.BookingPositionService)">
+            <summary>
+            Updates a booking position service.
+            </summary>
+            <param name="bpsid">BookingPositionServiceId</param>
+            <param name="value">new BookingPositionService</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.BookingPositionServiceController.DeleteBookingPositionService(System.Int32)">
+            <summary>
+            Delete a booking position service.
+            </summary>
+            <param name="bpsid">BookingPositionServiceId</param>
+        </member>
+        <member name="T:SE_StA_API.Controllers.CashController">
+            <summary>
+            This endpoint manages all operations for cashes.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CashController.GetAllCashes">
+            <summary>
+            Returns all cashes.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CashController.GetCash(System.Int32)">
+            <summary>
+            Returns the cashes with a given id.
+            </summary>
+            <param name="cid">CashID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CashController.AddCash(SE_StA_API.DataObject.Cash)">
+            <summary>
+            Adds a cash.
+            </summary>
+            <param name="value">new Cash</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CashController.UpdateCash(System.Int32,SE_StA_API.DataObject.Cash)">
+            <summary>
+            Updates a cash.
+            </summary>
+            <param name="cid">CashId</param>
+            <param name="value">new Cash</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CashController.DeleteCash(System.Int32)">
+            <summary>
+            Delete a cash.
+            </summary>
+            <param name="cid">CashId</param>
+        </member>
+        <member name="T:SE_StA_API.Controllers.ContactAddressController">
+            <summary>
+            This endpoint manages all operations for contact addresses.
+            </summary>
+        </member>
+        <member name="T:SE_StA_API.Controllers.ContactController">
+            <summary>
+            This endpoint manages all operations for contacts.
+            </summary>
+        </member>
         <member name="T:SE_StA_API.Controllers.CountryController">
             <summary>
             This endpoint manages all operations for countries.
@@ -141,6 +361,81 @@
             </summary>
             <param name="cid">CountryId</param>
         </member>
+        <member name="T:SE_StA_API.Controllers.CountryTimeZoneController">
+            <summary>
+            This endpoint manages all operations for country time zones.
+            </summary>
+        </member>
+        <member name="T:SE_StA_API.Controllers.CreditCardController">
+            <summary>
+            This endpoint manages all operations for credit cards.
+            </summary>
+        </member>
+        <member name="T:SE_StA_API.Controllers.CustomerController">
+            <summary>
+            This endpoint manages all operations for customers.
+            </summary>
+        </member>
+        <member name="T:SE_StA_API.Controllers.FlightController">
+            <summary>
+            This endpoint manages all operations for flights.
+            </summary>
+        </member>
+        <member name="T:SE_StA_API.Controllers.HotelController">
+            <summary>
+            This endpoint manages all operations for hotels.
+            </summary>
+        </member>
+        <member name="T:SE_StA_API.Controllers.InvoiceController">
+            <summary>
+            This endpoint manages all operations for invoices.
+            </summary>
+        </member>
+        <member name="T:SE_StA_API.Controllers.PaymentMethodController">
+            <summary>
+            This endpoint manages all operations for payment methods.
+            </summary>
+        </member>
+        <member name="T:SE_StA_API.Controllers.RentalCarController">
+            <summary>
+            This endpoint manages all operations for rental cars.
+            </summary>
+        </member>
+        <member name="T:SE_StA_API.Controllers.RoomController">
+            <summary>
+            This endpoint manages all operations for rooms.
+            </summary>
+        </member>
+        <member name="T:SE_StA_API.Controllers.RoomTypeController">
+            <summary>
+            This endpoint manages all operations for room types.
+            </summary>
+        </member>
+        <member name="T:SE_StA_API.Controllers.ServiceController">
+            <summary>
+            This endpoint manages all operations for services.
+            </summary>
+        </member>
+        <member name="T:SE_StA_API.Controllers.ServiceTypeController">
+            <summary>
+            This endpoint manages all operations for service types.
+            </summary>
+        </member>
+        <member name="T:SE_StA_API.Controllers.StatusController">
+            <summary>
+            This endpoint manages all operations for statuses.
+            </summary>
+        </member>
+        <member name="T:SE_StA_API.Controllers.TimeZoneController">
+            <summary>
+            This endpoint manages all operations for time zones.
+            </summary>
+        </member>
+        <member name="T:SE_StA_API.Controllers.WellnessController">
+            <summary>
+            This endpoint manages all operations for wellnesses.
+            </summary>
+        </member>
         <member name="T:SE_StA_API.Migrations.migrationv0">
             <inheritdoc />
         </member>
@@ -151,6 +446,18 @@
             <inheritdoc />
         </member>
         <member name="M:SE_StA_API.Migrations.migrationv0.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SE_StA_API.Migrations.migrationv1">
+            <inheritdoc />
+        </member>
+        <member name="M:SE_StA_API.Migrations.migrationv1.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SE_StA_API.Migrations.migrationv1.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SE_StA_API.Migrations.migrationv1.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
         <member name="P:SE_StA_API.Store.ApplicationContext.Countries">

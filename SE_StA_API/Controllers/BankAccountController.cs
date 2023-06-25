@@ -46,7 +46,7 @@ namespace SE_StA_API.Controllers {
         /// <summary>
         /// Adds a bank account.
         /// </summary>
-        /// <param name="value">new Adress</param>
+        /// <param name="value">new Bank Account</param>
         [HttpPost]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme,
             Roles = "Admin")]
@@ -85,6 +85,7 @@ namespace SE_StA_API.Controllers {
                 var toUpdate = context.BankAccounts.Where(v => v.BankAccountId == baid).FirstOrDefault();
                 if (toUpdate != null) {
                     toUpdate.Iban = value.Iban;
+                    toUpdate.PaymentMethodId = value.PaymentMethodId;
                     
                     await context.SaveChangesAsync();
 

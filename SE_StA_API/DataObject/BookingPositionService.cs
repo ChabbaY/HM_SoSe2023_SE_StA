@@ -14,7 +14,7 @@ namespace SE_StA_API.DataObject {
         [Required]
         [MinLength(1)]
         [MaxLength(10)]
-        public double price { get; set; }
+        public double Price { get; set; }
 
         public int ServiceId { get; internal set; }
 

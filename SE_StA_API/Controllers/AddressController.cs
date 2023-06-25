@@ -90,6 +90,8 @@ namespace SE_StA_API.Controllers {
                     toUpdate.PostalCode = value.PostalCode;
                     toUpdate.Town = value.Town;
                     toUpdate.AddressAddition = value.AddressAddition;
+                    toUpdate.CountryId = value.CountryId;
+                    toUpdate.TimeZoneId = value.TimeZoneId;
 
                     await context.SaveChangesAsync();
 

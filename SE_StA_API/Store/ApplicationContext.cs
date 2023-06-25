@@ -16,5 +16,6 @@ namespace SE_StA_API.Store {
         /// </summary>
         public DbSet<Country> Countries { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<BankAccount> BankAccounts { get; set; }
     }
 }

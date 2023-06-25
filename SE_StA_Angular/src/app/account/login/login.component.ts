@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { AccountInformationService } from '../../account-information.service';
@@ -17,7 +19,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   private subs: Subscription[] = [];
   constructor(private accountService: AccountService,
     private accountInformationService: AccountInformationService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private router: Router) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -30,7 +33,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   onSubmit(): void {
     this.form.markAllAsTouched();
     if (this.form.valid) {
-      console.log('form submitted');
+      this.loginRequest = this.form.value as LoginRequest;
       this.login(this.loginRequest);
       this.form.reset();
     }
@@ -49,8 +52,14 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.accountInformationService.setToken(response.token);
         this.accountInformationService.setUsername(response.username);
         this.accountInformationService.setEmail(response.email);
+
+        this.router.navigate(["account", "dashboard"]);
+        alert("You successfully logged in");
       },
-      (error) => { console.log(error); }
+      (error: HttpErrorResponse) => {
+        console.log(error);
+        alert("Something went wrong: " + JSON.stringify(error.error));
+      }
     ));
   }
 

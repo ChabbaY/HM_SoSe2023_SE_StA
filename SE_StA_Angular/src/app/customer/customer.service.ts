@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { urlConstant } from 'src/constants/url-constant';
+
 import { Customer } from './models/customer.model';
 
 @Injectable({
@@ -9,7 +11,7 @@ export class CustomerService {
   constructor(private http: HttpClient) { }
 
   getCustomers(): Customer[] {
-    //return this.http.get<Customer[]>('https://localhost:50001/api/customers');
+    //return this.http.get<Customer[]>(`${urlConstant.apiPath}/api/customers`);
     return [
       {
         id: 1,

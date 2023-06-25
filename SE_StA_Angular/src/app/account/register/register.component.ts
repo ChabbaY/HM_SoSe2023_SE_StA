@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { AccountService } from '../account.service';
@@ -15,7 +17,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
   form!: FormGroup;
   private subs: Subscription[] = [];
   constructor(private accountService: AccountService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private router: Router) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -28,7 +31,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   onSubmit(): void {
     this.form.markAllAsTouched();
     if (this.form.valid) {
-      console.log('form submitted');
+      this.registrationRequest = this.form.value as RegistrationRequest;
       this.register(this.registrationRequest);
       this.form.reset();
     }
@@ -42,10 +45,14 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   register(registrationRequest: RegistrationRequest) {
     this.subs.push(this.accountService.register(registrationRequest).subscribe(
-      (response) => {
-        console.log('success', response);
+      () => {
+        this.router.navigate(["account", "validate"]);
+        alert("You have been sent an E-Mail, please validate it with the token");
       },
-      (error) => { console.log(error); }
+      (error: HttpErrorResponse) => {
+        console.log(error);
+        alert("Something went wrong: " + JSON.stringify(error.error));
+      }
     ));
   }
 

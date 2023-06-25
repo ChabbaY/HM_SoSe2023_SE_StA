@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { urlConstant } from 'src/constants/url-constant';
+
 import { Contact } from './models/contact.model';
 
 @Injectable({
@@ -9,7 +11,7 @@ export class ContactService {
   constructor(private http: HttpClient) { }
 
   getContact(id: number): Contact {
-    //return this.http.get<Contact>(`https://localhost:50001/api/contacts/${id}`);
+    //return this.http.get<Contact>(`${urlConstant.apiPath}/api/contacts/${id}`);
     return {
       id: id,
       title: "Hotel",

@@ -1,7 +1,7 @@
 version: '3.4'
 
 services:
-  postgres:
+  database:
     container_name: mysql
     image: mysql
     restart: always
@@ -27,15 +27,14 @@ services:
     image: ${DOCKER_REGISTRY-}sestaapi
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://[::]:443;http://[::]:80
+      - ASPNETCORE_URLS=http://*:80
     build:
       context: ./SE_StA_API
       dockerfile: Dockerfile
     ports:
-      - "50000:80"
-      - "50001:443"
+      - "50001:80"
     depends_on:
-      - postgres
+      - database
   
   angular:
     container_name: angular

@@ -29,7 +29,7 @@ namespace SE_StA_API.Controllers {
         }
 
         /// <summary>
-        /// Returns the contacr addresses with a given id.
+        /// Returns the contact addresses with a given id.
         /// </summary>
         /// <param name="caid">ContactAddressID</param>
         [HttpGet("{caid}")]
@@ -98,7 +98,7 @@ namespace SE_StA_API.Controllers {
         }
 
         /// <summary>
-        /// Delete a contact address.
+        /// Deletes a contact address.
         /// </summary>
         /// <param name="caid">ContactAddressId</param>
         [HttpDelete("{caid}")]

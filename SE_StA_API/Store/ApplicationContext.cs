@@ -22,5 +22,6 @@ namespace SE_StA_API.Store {
         public DbSet<BookingPositionService> BookingPositionServices { get; set; }
         public DbSet<Cash> Cashes { get; set;}
         public DbSet<ContactAddress> ContactAddresses { get; set;}
+        public DbSet<Contact> Contacts { get; set;}
     }
 }

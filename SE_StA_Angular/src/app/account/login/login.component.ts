@@ -1,8 +1,7 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { catchError, Subscription, throwError } from 'rxjs';
 
 import { AccountInformationService } from '../../account-information.service';
 import { AccountService } from '../account.service';
@@ -17,6 +16,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   loginRequest: LoginRequest = { email: '', password: '', factorCode: '' };
   form!: FormGroup;
   private subs: Subscription[] = [];
+  feedback = '';
   constructor(private accountService: AccountService,
     private accountInformationService: AccountInformationService,
     private formBuilder: FormBuilder,
@@ -46,21 +46,22 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login(loginRequest: LoginRequest) {
-    this.subs.push(this.accountService.login(loginRequest).subscribe(
-      (response) => {
-        this.accountInformationService.setLoggedIn(true);
-        this.accountInformationService.setToken(response.token);
-        this.accountInformationService.setUsername(response.username);
-        this.accountInformationService.setEmail(response.email);
-
+    this.subs.push(this.accountService.login(loginRequest).pipe(
+      catchError((error) => {
+        let errorMsg = "Fehler " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+        this.feedback = errorMsg;
+        return throwError(() => new Error(errorMsg));
+      })
+    ).subscribe((response) => {
+      this.feedback = "You successfully logged in";
+      this.accountInformationService.setLoggedIn(true);
+      this.accountInformationService.setToken(response.token);
+      this.accountInformationService.setUsername(response.username);
+      this.accountInformationService.setEmail(response.email);
+      setTimeout(() => {
         this.router.navigate(["account", "dashboard"]);
-        alert("You successfully logged in");
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error);
-        alert("Something went wrong: " + JSON.stringify(error.error));
-      }
-    ));
+      }, 1000);
+    }));
   }
 
   //helper methods

@@ -1,8 +1,7 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { catchError, Subscription, throwError } from 'rxjs';
 
 import { AccountService } from '../account.service';
 import { RegistrationRequest } from '../models/registration-request.model';
@@ -16,6 +15,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   registrationRequest: RegistrationRequest = { email: '', username: '', password: '' };
   form!: FormGroup;
   private subs: Subscription[] = [];
+  feedback = '';
   constructor(private accountService: AccountService,
     private formBuilder: FormBuilder,
     private router: Router) { }
@@ -44,16 +44,18 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   register(registrationRequest: RegistrationRequest) {
-    this.subs.push(this.accountService.register(registrationRequest).subscribe(
-      () => {
-        this.router.navigate(["account", "validate"]);
-        alert("You have been sent an E-Mail, please validate it with the token");
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error);
-        alert("Something went wrong: " + JSON.stringify(error.error));
+    this.subs.push(this.accountService.register(registrationRequest).pipe(
+      catchError((error) => {
+        let errorMsg = "Fehler " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+        this.feedback = errorMsg;
+        return throwError(() => new Error(errorMsg));
       }
-    ));
+    )).subscribe((response) => {
+      this.feedback = "You have been sent an E-Mail, please validate it with the token";
+      setTimeout(() => {
+        this.router.navigate(["account", "validate"]);
+      }, 1000);
+    }));
   }
 
   //helper methods

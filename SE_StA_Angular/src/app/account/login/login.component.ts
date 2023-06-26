@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   login(loginRequest: LoginRequest) {
     this.subs.push(this.accountService.login(loginRequest).pipe(
       catchError((error) => {
-        let errorMsg = "Fehler " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+        let errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
         this.feedback = errorMsg;
         return throwError(() => new Error(errorMsg));
       })

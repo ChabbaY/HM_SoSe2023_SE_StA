@@ -46,7 +46,7 @@ export class ValidateComponent implements OnInit, OnDestroy {
     this.subs.push(this.accountService.validate(validationRequest).pipe(
       catchError((error) => {
         let errorMsg = '';
-        errorMsg = "Fehler " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+        errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
         this.feedback = errorMsg;
         return throwError(() => new Error(errorMsg));
       })

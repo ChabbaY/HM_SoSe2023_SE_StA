@@ -68,7 +68,7 @@ export class TwoFactorComponent implements OnInit, OnDestroy {
   isEnabled() {
     this.subs.push(this.accountService.get2faEnabled().pipe(
       catchError((error) => {
-        let errorMsg = "Fehler " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+        let errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
         this.feedback = errorMsg;
         return throwError(() => new Error(errorMsg));
       })
@@ -80,7 +80,7 @@ export class TwoFactorComponent implements OnInit, OnDestroy {
   setup() {
     this.subs.push(this.accountService.get2faSetup().pipe(
       catchError((error) => {
-        let errorMsg = "Fehler " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+        let errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
         this.feedback = errorMsg;
         return throwError(() => new Error(errorMsg));
       })
@@ -94,7 +94,7 @@ export class TwoFactorComponent implements OnInit, OnDestroy {
   enable(activationCode: number) {
     this.subs.push(this.accountService.enable2fa(activationCode).pipe(
       catchError((error) => {
-        let errorMsg = "Fehler " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+        let errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
         this.feedback = errorMsg;
         return throwError(() => new Error(errorMsg));
       })
@@ -109,7 +109,7 @@ export class TwoFactorComponent implements OnInit, OnDestroy {
   disable(factorCode: number) {
     this.subs.push(this.accountService.disable2fa(factorCode).pipe(
       catchError((error) => {
-        let errorMsg = "Fehler " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+        let errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
         this.feedback = errorMsg;
         return throwError(() => new Error(errorMsg));
       })

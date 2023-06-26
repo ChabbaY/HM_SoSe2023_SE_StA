@@ -24,7 +24,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      validatePassword: ['', Validators.required]
     });
   }
 
@@ -46,7 +47,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   register(registrationRequest: RegistrationRequest) {
     this.subs.push(this.accountService.register(registrationRequest).pipe(
       catchError((error) => {
-        let errorMsg = "Fehler " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+        let errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
         this.feedback = errorMsg;
         return throwError(() => new Error(errorMsg));
       }

@@ -17,7 +17,14 @@
     <label for="password" class="control-label required">Password</label>
     <input type="password" id="password" formControlName="password" />
     <div *ngIf="isFieldInvalid('password')" class="has-error">
-      Please enter a password
+      Please enter a valid password (12 characters, mixed case and non-alphanumeric)
+    </div>
+  </div>
+  <div class="form-row">
+    <label for="validatePassword" class="control-label required">Repeat Password</label>
+    <input type="password" id="validatePassword" formControlName="validatePassword" />
+    <div *ngIf="isFieldInvalid('validatePassword')" class="has-error">
+      The passwords do not match.
     </div>
   </div>
 

@@ -17,9 +17,7 @@ namespace SE_StA_API.DataObject {
         [StringLength(2)]
         public string Iso2 { get; set; }
 
-        public List<Address> addresses {get; internal set;}
 
-        public List<CountryTimeZone> countryTimeZones {get; internal set;}
         
     }
 }

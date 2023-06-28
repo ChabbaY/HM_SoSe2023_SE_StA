@@ -10,6 +10,5 @@ namespace SE_StA_API.DataObject {
         [MaxLength(20)]
         public string Number { get; set; }
 
-        public List<Booking> bookings {get; internal set;}
     }
 }

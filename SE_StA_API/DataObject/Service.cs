@@ -7,12 +7,5 @@ namespace SE_StA_API.DataObject {
 
         public int ServiceTypeId { get; internal set; }
 
-        public List<Flight> flights { get; internal set; }
-
-        public List<RentalCar> rentalCars { get; internal set; }
-
-        public List<Wellness> wellnesses {get;internal set;}
-
-        public List<BookingPositionService> bookingPositionServices {get;internal set;}
     }
 }

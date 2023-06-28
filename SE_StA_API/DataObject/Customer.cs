@@ -21,10 +21,6 @@ namespace SE_StA_API.DataObject {
         [MaxLength(10)]
         public string Number { get; set; }
 
-        public List<Booking> bookings { get; internal set; }
-
-        public List<PaymentMethod> paymentMethods { get; internal set; }
-
         public int ContactId { get; internal set; }
 
         public int UserId { get; internal set; }

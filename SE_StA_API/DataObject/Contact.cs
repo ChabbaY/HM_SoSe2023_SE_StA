@@ -12,12 +12,5 @@ namespace SE_StA_API.DataObject {
 
         [MaxLength(50)]
         public string Phone { get; set; }
-
-        public List<Hotel> hotels {get;internal set;}
-
-        public List<Customer> customers {get;internal set;}
-
-        public List<ContactAddress> contactAdresses {get;internal set;}
-        
     }
 }

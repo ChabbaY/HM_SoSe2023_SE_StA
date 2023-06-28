@@ -31,7 +31,7 @@ namespace SE_StA_API.DataObject {
         public int CountryId {get; internal set; }
         public int TimeZoneId {get; internal set; }
 
-        public List<ContactAddress> contactAdresses {get; internal set;}
+    
 
     }
 }

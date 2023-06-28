@@ -13,8 +13,6 @@ namespace SE_StA_API.DataObject {
         public int HotelId { get; internal set; }
         
         public int RoomTypeId { get; internal set; }
-        
-        public List<BookingPositionRoom> bookingPositionRooms { get; internal set; }
 
     }
 }

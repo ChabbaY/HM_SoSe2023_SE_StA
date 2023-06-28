@@ -14,9 +14,5 @@ namespace SE_StA_API.DataObject {
          [MaxLength(50)]
          public int difUtc { get; set; }
 
-
-         public List<CountryTimeZone> countryTimeZones {get; internal set;}
-
-         public List<Address> addresses {get; internal set;}
     }
 }

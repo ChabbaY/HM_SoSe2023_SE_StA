@@ -10,7 +10,7 @@ import { LoginRequest } from '../models/login-request.model';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss', '../account.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
   loginRequest: LoginRequest = { email: '', password: '', factorCode: '' };
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   login(loginRequest: LoginRequest) {
     this.subs.push(this.accountService.login(loginRequest).pipe(
       catchError((error) => {
-        let errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+        const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
         this.feedback = errorMsg;
         return throwError(() => new Error(errorMsg));
       })

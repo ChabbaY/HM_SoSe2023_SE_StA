@@ -9,7 +9,7 @@ import { ValidationRequest } from '../models/validation-request.model';
 @Component({
   selector: 'app-validate',
   templateUrl: './validate.component.html',
-  styleUrls: ['./validate.component.scss']
+  styleUrls: ['./validate.component.scss', '../account.component.scss']
 })
 export class ValidateComponent implements OnInit, OnDestroy {
   validationRequest: ValidationRequest = { email: '', token: '' };

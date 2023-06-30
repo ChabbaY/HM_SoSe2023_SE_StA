@@ -9,7 +9,7 @@ import { AccountService } from '../account.service';
 @Component({
   selector: 'app-two-factor',
   templateUrl: './two-factor.component.html',
-  styleUrls: ['./two-factor.component.scss']
+  styleUrls: ['./two-factor.component.scss', '../account.component.scss']
 })
 export class TwoFactorComponent implements OnInit, OnDestroy {
   public username = "";
@@ -45,7 +45,7 @@ export class TwoFactorComponent implements OnInit, OnDestroy {
   onSubmitEnable(): void {
     this.enableForm.markAllAsTouched();
     if (this.enableForm.valid) {
-      let factorCode = this.enableForm.value as FactorCode;
+      const factorCode = this.enableForm.value as FactorCode;
       this.enable(factorCode.factorCode);
       this.enableForm.reset();
     }
@@ -53,7 +53,7 @@ export class TwoFactorComponent implements OnInit, OnDestroy {
   onSubmitDisable(): void {
     this.disableForm.markAllAsTouched();
     if (this.disableForm.valid) {
-      let factorCode = this.disableForm.value as FactorCode;
+      const factorCode = this.disableForm.value as FactorCode;
       this.disable(factorCode.factorCode);
       this.disableForm.reset();
     }
@@ -68,7 +68,7 @@ export class TwoFactorComponent implements OnInit, OnDestroy {
   isEnabled() {
     this.subs.push(this.accountService.get2faEnabled().pipe(
       catchError((error) => {
-        let errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+        const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
         this.feedback = errorMsg;
         return throwError(() => new Error(errorMsg));
       })
@@ -80,7 +80,7 @@ export class TwoFactorComponent implements OnInit, OnDestroy {
   setup() {
     this.subs.push(this.accountService.get2faSetup().pipe(
       catchError((error) => {
-        let errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+        const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
         this.feedback = errorMsg;
         return throwError(() => new Error(errorMsg));
       })
@@ -94,7 +94,7 @@ export class TwoFactorComponent implements OnInit, OnDestroy {
   enable(activationCode: number) {
     this.subs.push(this.accountService.enable2fa(activationCode).pipe(
       catchError((error) => {
-        let errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+        const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
         this.feedback = errorMsg;
         return throwError(() => new Error(errorMsg));
       })
@@ -109,7 +109,7 @@ export class TwoFactorComponent implements OnInit, OnDestroy {
   disable(factorCode: number) {
     this.subs.push(this.accountService.disable2fa(factorCode).pipe(
       catchError((error) => {
-        let errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+        const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
         this.feedback = errorMsg;
         return throwError(() => new Error(errorMsg));
       })

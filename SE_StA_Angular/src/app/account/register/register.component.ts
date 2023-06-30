@@ -5,11 +5,12 @@ import { catchError, Subscription, throwError } from 'rxjs';
 
 import { AccountService } from '../account.service';
 import { RegistrationRequest } from '../models/registration-request.model';
+import { PasswordValidator } from '../password-validator';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss', '../account.component.scss']
 })
 export class RegisterComponent implements OnInit, OnDestroy {
   registrationRequest: RegistrationRequest = { email: '', username: '', password: '' };
@@ -24,14 +25,18 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       username: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', Validators.required,
+        PasswordValidator.strong],
       validatePassword: ['', Validators.required]
     });
   }
 
   onSubmit(): void {
     this.form.markAllAsTouched();
-    if (this.form.valid) {
+    if (this.form.get('password')?.value !== this.form.get('validatePassword')?.value) {
+      this.form.get('validatePassword')?.setErrors(new Error("passwords do not match"));
+    }
+    else if (this.form.valid) {
       this.registrationRequest = this.form.value as RegistrationRequest;
       this.register(this.registrationRequest);
       this.form.reset();
@@ -47,7 +52,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   register(registrationRequest: RegistrationRequest) {
     this.subs.push(this.accountService.register(registrationRequest).pipe(
       catchError((error) => {
-        let errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+        const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
         this.feedback = errorMsg;
         return throwError(() => new Error(errorMsg));
       }

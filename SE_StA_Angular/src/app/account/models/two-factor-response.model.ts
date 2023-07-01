@@ -1,4 +1,4 @@
 export interface TwoFactorResponse {
-    key: string,
-    qr: string
+  key: string,
+  qr: string
 }

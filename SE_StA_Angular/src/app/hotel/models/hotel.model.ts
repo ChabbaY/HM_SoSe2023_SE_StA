@@ -1,5 +1,6 @@
 export interface Hotel {
-    id: number,
-    contactId: number,
-    name: string
+  hotelId: number,
+  contactId: number,
+  name: string,
+  stars: number
 }

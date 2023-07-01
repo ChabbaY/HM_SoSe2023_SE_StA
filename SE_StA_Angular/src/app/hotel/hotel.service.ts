@@ -10,18 +10,7 @@ import { Hotel } from './models/hotel.model';
 export class HotelService {
   constructor(private http: HttpClient) { }
 
-  getHotels(): Hotel[] {
-    //return this.http.get<Hotel[]>(`${urlConstant.apiPath}/api/hotels`);
-    return [
-      {
-        id: 1,
-        contactId: 1,
-        name: "A"
-      }, {
-        id: 2,
-        contactId: 2,
-        name: "B"
-      }
-    ];
+  getHotels() {
+    return this.http.get<Hotel[]>(`${urlConstant.apiPath}/api/hotels`);
   }
 }

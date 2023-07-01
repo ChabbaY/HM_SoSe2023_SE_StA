@@ -12,25 +12,25 @@ export class RoomService {
     //return this.http.get<Room[]>(`https://localhost:50001/api/hotels/${hotelId}/rooms`);
     return [
       {
-        id: 1,
+        roomId: 1,
         hotelId: hotelId,
         roomType: {
-          id: 1,
+          roomTypeId: 1,
           name: "normal",
           defaultPrice: 100,
           personsCount: 2
         },
-        nr: "1A"
+        roomNumber: "1A"
       }, {
-        id: 2,
+        roomId: 2,
         hotelId: hotelId,
         roomType: {
-          id: 2,
+          roomTypeId: 2,
           name: "special",
           defaultPrice: 120,
           personsCount: 2
         },
-        nr: "2B"
+        roomNumber: "2B"
       }
     ];
   }

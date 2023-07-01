@@ -1,5 +1,5 @@
 export interface Timezone {
-  id: number,
+  timeZoneId: number,
   name: string,
-  diffUtc: number
+  difUtc: number
 }

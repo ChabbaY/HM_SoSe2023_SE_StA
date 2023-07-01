@@ -12,8 +12,8 @@ export class BookingService {
     //return this.http.get<Booking[]>(`https://localhost:50001/api/customers/${customerId}/bookings`);
     return [
       {
-        id: 1,
-        nr: "1",
+        bookingId: 1,
+        number: "1",
         date: "2023-06-14",
         price: 100,
         customerId: customerId,
@@ -21,8 +21,8 @@ export class BookingService {
         paymentMethodId: 1,
         statusId: 1
       }, {
-        id: 2,
-        nr: "2",
+        bookingId: 2,
+        number: "2",
         date: "2023-06-16",
         price: 100.50,
         customerId: customerId,

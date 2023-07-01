@@ -43,7 +43,7 @@ Die funktionalen Anforderungen gehen aus dem Pflichtenheft hervor. Hier ist das 
 Bei lokal installiertem .NET CORE 7 Migration erstellen mit:<br />
 `dotnet-ef migrations add [Migration-Version]`
 e.g.
-`dotmet-ef migrations add migration-v0`<br />
+`dotnet-ef migrations add migration-v0`<br />
 Pushen zur Datenbank über<br />
 `dotnet-ef database update`<br />
 Dafür muss temporär in appsettings.json der server auf localhost gesetzt werden.

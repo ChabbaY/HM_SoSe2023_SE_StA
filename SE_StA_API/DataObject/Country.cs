@@ -3,7 +3,7 @@
 namespace SE_StA_API.DataObject {
     public class Country {
         [Key]
-        public int Id { get; set; }
+        public int CountryId { get; set; }
 
         [Required]
         [MinLength(1)]
@@ -16,5 +16,8 @@ namespace SE_StA_API.DataObject {
         [Required]
         [StringLength(2)]
         public string Iso2 { get; set; }
+
+
+        
     }
 }

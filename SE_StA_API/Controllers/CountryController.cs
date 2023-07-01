@@ -37,7 +37,7 @@ namespace SE_StA_API.Controllers {
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<Country> GetCountry([FromRoute] int cid) {
-            var value = context.Countries.Where(v => v.Id == cid).FirstOrDefault();
+            var value = context.Countries.Where(v => v.CountryId == cid).FirstOrDefault();
             if (value == null)
                 return NotFound();
             return Ok(value);
@@ -56,7 +56,7 @@ namespace SE_StA_API.Controllers {
         public async Task<ActionResult<Country>> AddCountry([FromBody] Country value) {
             if (ModelState.IsValid) {
                 //test if country already exists
-                if (context.Countries.Where(v => v.Id == value.Id).FirstOrDefault() != null) {
+                if (context.Countries.Where(v => v.CountryId == value.CountryId).FirstOrDefault() != null) {
                     ModelState.AddModelError("validationError", "Country already exists");
                     return Conflict(ModelState); //country with id already exists, we return a conflict
                 }
@@ -82,7 +82,7 @@ namespace SE_StA_API.Controllers {
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Country>> UpdateCountry([FromRoute] int cid, [FromBody] Country value) {
             if (ModelState.IsValid) {
-                var toUpdate = context.Countries.Where(v => v.Id == cid).FirstOrDefault();
+                var toUpdate = context.Countries.Where(v => v.CountryId == cid).FirstOrDefault();
                 if (toUpdate != null) {
                     toUpdate.Name = value.Name;
                     toUpdate.Language = value.Language;
@@ -109,7 +109,7 @@ namespace SE_StA_API.Controllers {
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         public async Task<ActionResult<Country>> DeleteCountry([FromRoute] int cid) {
-            var toDelete = context.Countries.Where(v => v.Id == cid);
+            var toDelete = context.Countries.Where(v => v.CountryId == cid);
             context.Countries.RemoveRange(toDelete);
 
             await context.SaveChangesAsync();

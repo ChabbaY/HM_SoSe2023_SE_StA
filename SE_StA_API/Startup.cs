@@ -79,7 +79,7 @@ namespace SE_StA_API {
                         ValidateIssuerSigningKey = true,
                         ValidIssuer = "apiWithAuthBackend",
                         ValidAudience = "apiWithAuthBackend",
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("G6Gn&nCA$u8mna%4"))
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("9Yacv&DbDaK9bh&en$bcojwycAHxFncqs2tLG$PHgz6AumSzCnW&89Ss8ebBhqq!"))
                     };
                 });
 

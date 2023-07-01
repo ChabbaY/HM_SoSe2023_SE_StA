@@ -1,4 +1,3 @@
-import { HttpErrorResponse, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,12 +9,13 @@ import { ValidationRequest } from '../models/validation-request.model';
 @Component({
   selector: 'app-validate',
   templateUrl: './validate.component.html',
-  styleUrls: ['./validate.component.scss']
+  styleUrls: ['./validate.component.scss', '../account.component.scss']
 })
 export class ValidateComponent implements OnInit, OnDestroy {
   validationRequest: ValidationRequest = { email: '', token: '' };
   form!: FormGroup;
   private subs: Subscription[] = [];
+  feedback = '';
   constructor(private accountService: AccountService,
     private formBuilder: FormBuilder,
     private router: Router) { }
@@ -43,23 +43,18 @@ export class ValidateComponent implements OnInit, OnDestroy {
   }
 
   validate(validationRequest: ValidationRequest) {
-    /*this.subs.push(this.accountService.validate(validationRequest).subscribe(
-      (response) => {
-        this.router.navigate(["account", "login"]);
-        alert("Your E-Mail has been validated. You can now log in!");
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error);
-        alert("Something went wrong: " + JSON.stringify(error.error));
-      }
-    ));*/
     this.subs.push(this.accountService.validate(validationRequest).pipe(
       catchError((error) => {
-        console.log(error);
-        return throwError(() => new Error(error));
+        let errorMsg = '';
+        errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+        this.feedback = errorMsg;
+        return throwError(() => new Error(errorMsg));
       })
     ).subscribe((response) => {
-      console.log(response);
+      this.feedback = JSON.stringify(response);
+      setTimeout(() => {
+        this.router.navigate(["account", "login"]);
+      }, 1000);
     }));
   }
 
@@ -67,17 +62,5 @@ export class ValidateComponent implements OnInit, OnDestroy {
 
   isFieldInvalid(field: string) {
     return (!this.form.get(field)?.valid && this.form.get(field)?.touched);
-  }
-
-  handleError(err: HttpErrorResponse) {
-    if (err.status === 400) {//Bad Request
-      console.log("Confirmation failed");
-    }
-    else if (err.status === 200) {//Ok
-      return;
-    }
-    else {
-      console.log(err);
-    }
   }
 }

@@ -137,13 +137,13 @@ namespace SE_StA_API.Authentication {
             } else {
                 var confirmed = await _userManager.IsEmailConfirmedAsync(user);
                 if (confirmed) {
-                    return Ok("Email bereits bestätigt!");
+                    return Ok(new { message = "Email bereits bestätigt" });
                 }
                 var result = await _userManager.ConfirmEmailAsync(user, token);
                 if (result.Succeeded) {
                     result = await _userManager.AddToRoleAsync(user, "User");
                     if (result.Succeeded) {
-                        return Ok("Email erfolgreich bestätigt!");
+                        return Ok(new { message = "Email erfolgreich bestätigt!" });
                     } else {
                         ModelState.AddModelError("Could not add to role User", "Make sure the role User exists");
                         return BadRequest(ModelState);

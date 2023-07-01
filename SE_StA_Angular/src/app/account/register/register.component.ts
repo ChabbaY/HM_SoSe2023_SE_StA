@@ -1,21 +1,22 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { catchError, Subscription, throwError } from 'rxjs';
 
 import { AccountService } from '../account.service';
 import { RegistrationRequest } from '../models/registration-request.model';
+import { PasswordValidator } from '../password-validator';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss', '../account.component.scss']
 })
 export class RegisterComponent implements OnInit, OnDestroy {
   registrationRequest: RegistrationRequest = { email: '', username: '', password: '' };
   form!: FormGroup;
   private subs: Subscription[] = [];
+  feedback = '';
   constructor(private accountService: AccountService,
     private formBuilder: FormBuilder,
     private router: Router) { }
@@ -24,13 +25,18 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required,
+        PasswordValidator.strong],
+      validatePassword: ['', Validators.required]
     });
   }
 
   onSubmit(): void {
     this.form.markAllAsTouched();
-    if (this.form.valid) {
+    if (this.form.get('password')?.value !== this.form.get('validatePassword')?.value) {
+      this.form.get('validatePassword')?.setErrors(new Error("passwords do not match"));
+    }
+    else if (this.form.valid) {
       this.registrationRequest = this.form.value as RegistrationRequest;
       this.register(this.registrationRequest);
       this.form.reset();
@@ -44,16 +50,18 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   register(registrationRequest: RegistrationRequest) {
-    this.subs.push(this.accountService.register(registrationRequest).subscribe(
-      () => {
-        this.router.navigate(["account", "validate"]);
-        alert("You have been sent an E-Mail, please validate it with the token");
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error);
-        alert("Something went wrong: " + JSON.stringify(error.error));
+    this.subs.push(this.accountService.register(registrationRequest).pipe(
+      catchError((error) => {
+        const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+        this.feedback = errorMsg;
+        return throwError(() => new Error(errorMsg));
       }
-    ));
+    )).subscribe((response) => {
+      this.feedback = "You have been sent an E-Mail, please validate it with the token";
+      setTimeout(() => {
+        this.router.navigate(["account", "validate"]);
+      }, 1000);
+    }));
   }
 
   //helper methods

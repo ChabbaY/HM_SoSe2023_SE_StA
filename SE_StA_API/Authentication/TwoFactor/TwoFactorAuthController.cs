@@ -29,7 +29,7 @@ namespace SE_StA_API.Authentication.TwoFactor {
             //retrieve current user
             IdentityUser user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
 
-            var setupInfo = _twoFactor.GenerateSetupCode("ChabbaY", user.Email, TwoFactorKey(user), false, 3);
+            var setupInfo = _twoFactor.GenerateSetupCode("SE_StA", user.Email, TwoFactorKey(user), false, 3);
 
             return Ok(new {
                 key = setupInfo.ManualEntryKey,

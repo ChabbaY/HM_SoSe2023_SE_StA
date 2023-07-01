@@ -321,10 +321,70 @@
             This endpoint manages all operations for contact addresses.
             </summary>
         </member>
+        <member name="M:SE_StA_API.Controllers.ContactAddressController.GetAllContactAddress">
+            <summary>
+            Returns all contact addresses.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ContactAddressController.GetContactAddress(System.Int32)">
+            <summary>
+            Returns the contact addresses with a given id.
+            </summary>
+            <param name="caid">ContactAddressID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ContactAddressController.AddContactAddress(SE_StA_API.DataObject.ContactAddress)">
+            <summary>
+            Adds a contact address.
+            </summary>
+            <param name="value">new contact address</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ContactAddressController.UpdateContactAddress(System.Int32,SE_StA_API.DataObject.ContactAddress)">
+            <summary>
+            Updates a contact address.
+            </summary>
+            <param name="caid">ContactAddressId</param>
+            <param name="value">new ContactAddress</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ContactAddressController.DeleteContactAddress(System.Int32)">
+            <summary>
+            Deletes a contact address.
+            </summary>
+            <param name="caid">ContactAddressId</param>
+        </member>
         <member name="T:SE_StA_API.Controllers.ContactController">
             <summary>
             This endpoint manages all operations for contacts.
             </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ContactController.GetAllContacts">
+            <summary>
+            Returns all contacts.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ContactController.GetContact(System.Int32)">
+            <summary>
+            Returns the contact with a given id.
+            </summary>
+            <param name="cid">ContactID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ContactController.AddContact(SE_StA_API.DataObject.Contact)">
+            <summary>
+            Adds a contact.
+            </summary>
+            <param name="value">new contact</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ContactController.UpdateContact(System.Int32,SE_StA_API.DataObject.Contact)">
+            <summary>
+            Updates a contact.
+            </summary>
+            <param name="cid">ContactId</param>
+            <param name="value">new Contact</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ContactController.DeleteContact(System.Int32)">
+            <summary>
+            Deletes a contact.
+            </summary>
+            <param name="cid">ContactId</param>
         </member>
         <member name="T:SE_StA_API.Controllers.CountryController">
             <summary>
@@ -366,75 +426,525 @@
             This endpoint manages all operations for country time zones.
             </summary>
         </member>
+        <member name="M:SE_StA_API.Controllers.CountryTimeZoneController.GetAllCountryTimeZones">
+            <summary>
+            Returns all country time zones.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CountryTimeZoneController.GetCountryTimeZone(System.Int32)">
+            <summary>
+            Returns the country time zones with a given id.
+            </summary>
+            <param name="ctzid">CountryTimeZoneID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CountryTimeZoneController.AddCountryTimeZone(SE_StA_API.DataObject.CountryTimeZone)">
+            <summary>
+            Adds a country time zone.
+            </summary>
+            <param name="value">new country time zone</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CountryTimeZoneController.UpdateCountryTimeZone(System.Int32,SE_StA_API.DataObject.CountryTimeZone)">
+            <summary>
+            Updates a country time zone.
+            </summary>
+            <param name="ctzid">CountryTimeZoneId</param>
+            <param name="value">new CountryTimeZone</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CountryTimeZoneController.DeleteCountryTimeZone(System.Int32)">
+            <summary>
+            Deletes a country time zone.
+            </summary>
+            <param name="ctzid">CountryTimeZoneId</param>
+        </member>
         <member name="T:SE_StA_API.Controllers.CreditCardController">
             <summary>
             This endpoint manages all operations for credit cards.
             </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CreditCardController.GetAllCreditCards">
+            <summary>
+            Returns all credit cards.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CreditCardController.GetCreditCard(System.Int32)">
+            <summary>
+            Returns the credit card with a given id.
+            </summary>
+            <param name="ccid">CreditCardID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CreditCardController.AddCreditCard(SE_StA_API.DataObject.CreditCard)">
+            <summary>
+            Adds a credit card.
+            </summary>
+            <param name="value">new credit card</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CreditCardController.UpdateCreditCard(System.Int32,SE_StA_API.DataObject.CreditCard)">
+            <summary>
+            Updates a credit card.
+            </summary>
+            <param name="ccid">CreditCardId</param>
+            <param name="value">new CreditCard</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CreditCardController.DeleteCreditCard(System.Int32)">
+            <summary>
+            Deletes a credit card.
+            </summary>
+            <param name="ccid">CreditCardId</param>
         </member>
         <member name="T:SE_StA_API.Controllers.CustomerController">
             <summary>
             This endpoint manages all operations for customers.
             </summary>
         </member>
+        <member name="M:SE_StA_API.Controllers.CustomerController.GetAllCustomers">
+            <summary>
+            Returns all customers.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CustomerController.GetCustomer(System.Int32)">
+            <summary>
+            Returns the customer with a given id.
+            </summary>
+            <param name="cid">CustomerID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CustomerController.AddCustomer(SE_StA_API.DataObject.Customer)">
+            <summary>
+            Adds a customer.
+            </summary>
+            <param name="value">new customer</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CustomerController.UpdateCustomer(System.Int32,SE_StA_API.DataObject.Customer)">
+            <summary>
+            Updates a customer.
+            </summary>
+            <param name="cid">CustomerId</param>
+            <param name="value">new Customer</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.CustomerController.DeleteCustomer(System.Int32)">
+            <summary>
+            Deletes a customer.
+            </summary>
+            <param name="cid">CustomerId</param>
+        </member>
         <member name="T:SE_StA_API.Controllers.FlightController">
             <summary>
             This endpoint manages all operations for flights.
             </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.FlightController.GetAllFlights">
+            <summary>
+            Returns all flights.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.FlightController.GetFlight(System.Int32)">
+            <summary>
+            Returns the flight with a given id.
+            </summary>
+            <param name="fid">FlightID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.FlightController.AddFlight(SE_StA_API.DataObject.Flight)">
+            <summary>
+            Adds a flight.
+            </summary>
+            <param name="value">new flight</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.FlightController.UpdateFlight(System.Int32,SE_StA_API.DataObject.Flight)">
+            <summary>
+            Updates a flight.
+            </summary>
+            <param name="fid">FlightId</param>
+            <param name="value">new Flight</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.FlightController.DeleteFlight(System.Int32)">
+            <summary>
+            Deletes a flight.
+            </summary>
+            <param name="fid">FlightId</param>
         </member>
         <member name="T:SE_StA_API.Controllers.HotelController">
             <summary>
             This endpoint manages all operations for hotels.
             </summary>
         </member>
+        <member name="M:SE_StA_API.Controllers.HotelController.GetAllHotels">
+            <summary>
+            Returns all hotels.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.HotelController.GetHotel(System.Int32)">
+            <summary>
+            Returns the hotel with a given id.
+            </summary>
+            <param name="hid">HotelID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.HotelController.AddHotel(SE_StA_API.DataObject.Hotel)">
+            <summary>
+            Adds a hotel.
+            </summary>
+            <param name="value">new hotel</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.HotelController.UpdateHotel(System.Int32,SE_StA_API.DataObject.Hotel)">
+            <summary>
+            Updates a hotel.
+            </summary>
+            <param name="hid">HotelId</param>
+            <param name="value">new Hotel</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.HotelController.DeleteHotel(System.Int32)">
+            <summary>
+            Deletes a hotel.
+            </summary>
+            <param name="hid">HotelId</param>
+        </member>
         <member name="T:SE_StA_API.Controllers.InvoiceController">
             <summary>
             This endpoint manages all operations for invoices.
             </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.InvoiceController.GetAllInvoices">
+            <summary>
+            Returns all invoices.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.InvoiceController.GetInvoice(System.Int32)">
+            <summary>
+            Returns the invoice with a given id.
+            </summary>
+            <param name="iid">InvoiceID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.InvoiceController.AddInvoice(SE_StA_API.DataObject.Invoice)">
+            <summary>
+            Adds an invoice.
+            </summary>
+            <param name="value">new invoice</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.InvoiceController.UpdateHotel(System.Int32,SE_StA_API.DataObject.Invoice)">
+            <summary>
+            Updates an invoice.
+            </summary>
+            <param name="iid">InvoiceId</param>
+            <param name="value">new Invoice</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.InvoiceController.DeleteInvoice(System.Int32)">
+            <summary>
+            Deletes an invoice.
+            </summary>
+            <param name="iid">InvoiceId</param>
         </member>
         <member name="T:SE_StA_API.Controllers.PaymentMethodController">
             <summary>
             This endpoint manages all operations for payment methods.
             </summary>
         </member>
+        <member name="M:SE_StA_API.Controllers.PaymentMethodController.GetAllPaymentMethods">
+            <summary>
+            Returns all Payment Methods.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.PaymentMethodController.GetPaymentMethod(System.Int32)">
+            <summary>
+            Returns the payment method with a given id.
+            </summary>
+            <param name="pmid">PaymentMethodID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.PaymentMethodController.AddPaymentMethod(SE_StA_API.DataObject.PaymentMethod)">
+            <summary>
+            Adds a payment method.
+            </summary>
+            <param name="value">new payment method</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.PaymentMethodController.UpdateHotel(System.Int32,SE_StA_API.DataObject.PaymentMethod)">
+            <summary>
+            Updates a payment method.
+            </summary>
+            <param name="pmid">PaymentMethodId</param>
+            <param name="value">new Payment Method</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.PaymentMethodController.DeletePaymentMethod(System.Int32)">
+            <summary>
+            Deletes a payment method.
+            </summary>
+            <param name="pmid">PaymentMethodId</param>
+        </member>
         <member name="T:SE_StA_API.Controllers.RentalCarController">
             <summary>
             This endpoint manages all operations for rental cars.
             </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.RentalCarController.GetAllRentalCars">
+            <summary>
+            Returns all rental cars.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.RentalCarController.GetRentalCar(System.Int32)">
+            <summary>
+            Returns the rental car with a given id.
+            </summary>
+            <param name="rcid">RentalCarID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.RentalCarController.AddRentalCar(SE_StA_API.DataObject.RentalCar)">
+            <summary>
+            Adds a rental car.
+            </summary>
+            <param name="value">new rental car</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.RentalCarController.UpdateRentalCar(System.Int32,SE_StA_API.DataObject.RentalCar)">
+            <summary>
+            Updates a rental car.
+            </summary>
+            <param name="rcid">RentalCarId</param>
+            <param name="value">new RentalCar</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.RentalCarController.DeleteRentalCar(System.Int32)">
+            <summary>
+            Deletes a rental car.
+            </summary>
+            <param name="rcid">RentalCarId</param>
         </member>
         <member name="T:SE_StA_API.Controllers.RoomController">
             <summary>
             This endpoint manages all operations for rooms.
             </summary>
         </member>
+        <member name="M:SE_StA_API.Controllers.RoomController.GetAllRooms">
+            <summary>
+            Returns all rooms.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.RoomController.GetRoom(System.Int32)">
+            <summary>
+            Returns the room with a given id.
+            </summary>
+            <param name="rid">RoomID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.RoomController.AddRoom(SE_StA_API.DataObject.Room)">
+            <summary>
+            Adds a room.
+            </summary>
+            <param name="value">new room</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.RoomController.UpdateRoom(System.Int32,SE_StA_API.DataObject.Room)">
+            <summary>
+            Updates a room.
+            </summary>
+            <param name="rid">RoomId</param>
+            <param name="value">new Room</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.RoomController.DeleteRoom(System.Int32)">
+            <summary>
+            Deletes a room.
+            </summary>
+            <param name="rid">RoomId</param>
+        </member>
         <member name="T:SE_StA_API.Controllers.RoomTypeController">
             <summary>
             This endpoint manages all operations for room types.
             </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.RoomTypeController.GetAllRoomTypes">
+            <summary>
+            Returns all room types.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.RoomTypeController.GetRoomType(System.Int32)">
+            <summary>
+            Returns the room type with a given id.
+            </summary>
+            <param name="rtid">RoomTypeID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.RoomTypeController.AddRoomType(SE_StA_API.DataObject.RoomType)">
+            <summary>
+            Adds a room type.
+            </summary>
+            <param name="value">new room type</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.RoomTypeController.UpdateRoomType(System.Int32,SE_StA_API.DataObject.RoomType)">
+            <summary>
+            Updates a room type.
+            </summary>
+            <param name="rtid">RoomTypeId</param>
+            <param name="value">new RoomType</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.RoomTypeController.DeleteRoomType(System.Int32)">
+            <summary>
+            Deletes a room type.
+            </summary>
+            <param name="rtid">RoomTypeId</param>
         </member>
         <member name="T:SE_StA_API.Controllers.ServiceController">
             <summary>
             This endpoint manages all operations for services.
             </summary>
         </member>
+        <member name="M:SE_StA_API.Controllers.ServiceController.GetAllServices">
+            <summary>
+            Returns all services.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ServiceController.GetService(System.Int32)">
+            <summary>
+            Returns the service with a given id.
+            </summary>
+            <param name="sid">ServiceID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ServiceController.AddService(SE_StA_API.DataObject.Service)">
+            <summary>
+            Adds a service.
+            </summary>
+            <param name="value">new service</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ServiceController.UpdateService(System.Int32,SE_StA_API.DataObject.Service)">
+            <summary>
+            Updates a service.
+            </summary>
+            <param name="sid">ServiceId</param>
+            <param name="value">new Service</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ServiceController.DeleteService(System.Int32)">
+            <summary>
+            Deletes a service.
+            </summary>
+            <param name="sid">ServiceId</param>
+        </member>
         <member name="T:SE_StA_API.Controllers.ServiceTypeController">
             <summary>
             This endpoint manages all operations for service types.
             </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ServiceTypeController.GetAllServiceTypes">
+            <summary>
+            Returns all service types.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ServiceTypeController.GetServiceType(System.Int32)">
+            <summary>
+            Returns the service type with a given id.
+            </summary>
+            <param name="stid">ServiceTypeID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ServiceTypeController.AddServiceType(SE_StA_API.DataObject.ServiceType)">
+            <summary>
+            Adds a service type.
+            </summary>
+            <param name="value">new service type</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ServiceTypeController.UpdateServiceType(System.Int32,SE_StA_API.DataObject.ServiceType)">
+            <summary>
+            Updates a service type.
+            </summary>
+            <param name="stid">ServiceTypeId</param>
+            <param name="value">new ServiceType</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.ServiceTypeController.DeleteServiceType(System.Int32)">
+            <summary>
+            Deletes a service type.
+            </summary>
+            <param name="stid">ServiceTypeId</param>
         </member>
         <member name="T:SE_StA_API.Controllers.StatusController">
             <summary>
             This endpoint manages all operations for statuses.
             </summary>
         </member>
+        <member name="M:SE_StA_API.Controllers.StatusController.GetAllStatuses">
+            <summary>
+            Returns all statuses.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.StatusController.GetStatus(System.Int32)">
+            <summary>
+            Returns the status with a given id.
+            </summary>
+            <param name="sid">StatusID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.StatusController.AddStatus(SE_StA_API.DataObject.Status)">
+            <summary>
+            Adds a status.
+            </summary>
+            <param name="value">new status</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.StatusController.UpdateStatus(System.Int32,SE_StA_API.DataObject.Status)">
+            <summary>
+            Updates a status.
+            </summary>
+            <param name="sid">StatusId</param>
+            <param name="value">new Status</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.StatusController.DeleteStatus(System.Int32)">
+            <summary>
+            Deletes a status.
+            </summary>
+            <param name="sid">StatusId</param>
+        </member>
         <member name="T:SE_StA_API.Controllers.TimeZoneController">
             <summary>
             This endpoint manages all operations for time zones.
             </summary>
         </member>
+        <member name="M:SE_StA_API.Controllers.TimeZoneController.GetAllTimeZones">
+            <summary>
+            Returns all time zones.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.TimeZoneController.GetTimeZone(System.Int32)">
+            <summary>
+            Returns the time zones with a given id.
+            </summary>
+            <param name="tzid">TimeZoneID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.TimeZoneController.AddTimeZone(SE_StA_API.DataObject.TimeZone)">
+            <summary>
+            Adds a time zone.
+            </summary>
+            <param name="value">new time zone</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.TimeZoneController.UpdateTimeZone(System.Int32,SE_StA_API.DataObject.TimeZone)">
+            <summary>
+            Updates a time zone.
+            </summary>
+            <param name="tzid">TimeZoneId</param>
+            <param name="value">new TimeZone</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.TimeZoneController.DeleteTimeZone(System.Int32)">
+            <summary>
+            Deletes a time zone.
+            </summary>
+            <param name="tzid">TimeZoneId</param>
+        </member>
         <member name="T:SE_StA_API.Controllers.WellnessController">
             <summary>
             This endpoint manages all operations for wellnesses.
             </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.WellnessController.GetAllWellnesses">
+            <summary>
+            Returns all wellnesses.
+            </summary>
+        </member>
+        <member name="M:SE_StA_API.Controllers.WellnessController.GetWellness(System.Int32)">
+            <summary>
+            Returns the wellness with a given id.
+            </summary>
+            <param name="wid">WellnessID</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.WellnessController.AddWellness(SE_StA_API.DataObject.Wellness)">
+            <summary>
+            Adds a wellness.
+            </summary>
+            <param name="value">new wellness</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.WellnessController.UpdateWellness(System.Int32,SE_StA_API.DataObject.Wellness)">
+            <summary>
+            Updates a wellness.
+            </summary>
+            <param name="wid">WellnessId</param>
+            <param name="value">new Wellness</param>
+        </member>
+        <member name="M:SE_StA_API.Controllers.WellnessController.DeleteWellness(System.Int32)">
+            <summary>
+            Deletes a wellness.
+            </summary>
+            <param name="wid">WellnessId</param>
         </member>
         <member name="T:SE_StA_API.Migrations.migrationv0">
             <inheritdoc />
@@ -458,6 +968,18 @@
             <inheritdoc />
         </member>
         <member name="M:SE_StA_API.Migrations.migrationv1.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SE_StA_API.Migrations.migrationv2">
+            <inheritdoc />
+        </member>
+        <member name="M:SE_StA_API.Migrations.migrationv2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SE_StA_API.Migrations.migrationv2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SE_StA_API.Migrations.migrationv2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
         <member name="P:SE_StA_API.Store.ApplicationContext.Countries">

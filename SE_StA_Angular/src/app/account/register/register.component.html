@@ -17,9 +17,32 @@
     <label for="password" class="control-label required">Password</label>
     <input type="password" id="password" formControlName="password" />
     <div *ngIf="isFieldInvalid('password')" class="has-error">
-      Please enter a password
+      Please enter a valid password (12 characters, mixed case and non-alphanumeric)
+    </div>
+    <div *ngIf="form.get('password')?.hasError('hasNumber')" class="has-error">
+      - at least one number is required
+    </div>
+    <div *ngIf="form.get('password')?.hasError('hasUpper')" class="has-error">
+      - at least one upper case letter is required
+    </div>
+    <div *ngIf="form.get('password')?.hasError('hasLower')" class="has-error">
+      - at least one lower case letter is required
+    </div>
+    <div *ngIf="form.get('password')?.hasError('hasNonAlphanumeric')" class="has-error">
+      - at least one non-alphanumeric character is required (§@$!%*?&)
+    </div>
+    <div *ngIf="form.get('password')?.hasError('hasLength')" class="has-error">
+      - at least 12 characters are required
+    </div>
+  </div>
+  <div class="form-row">
+    <label for="validatePassword" class="control-label required">Repeat Password</label>
+    <input type="password" id="validatePassword" formControlName="validatePassword" />
+    <div *ngIf="isFieldInvalid('validatePassword')" class="has-error">
+      The passwords do not match.
     </div>
   </div>
 
   <button (click)="onSubmit()">Register</button>
-</form>
+</form><br />
+<p>{{feedback}}</p>

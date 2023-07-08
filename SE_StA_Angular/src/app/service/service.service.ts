@@ -16,23 +16,25 @@ export class ServiceService {
     //return this.http.get<Flight[]>(`${urlConstant.apiPath}/api/services/flights`);
     return [
       {
-        id: 1,
-        flightNr: "1",
+        flightId: 1,
+        flightNumber: "1",
+        destination: "Nirvana",
         service: {
-          id: 1,
+          serviceId: 1,
           serviceType: {
-            id: 1,
+            serviceTypeId: 1,
             name: "abc",
             defaultPrice: 100
           }
         }
       }, {
-        id: 2,
-        flightNr: "2",
+        flightId: 2,
+        flightNumber: "2",
+        destination: "Oktoberfest",
         service: {
-          id: 2,
+          serviceId: 2,
           serviceType: {
-            id: 1,
+            serviceTypeId: 1,
             name: "abc",
             defaultPrice: 100
           }
@@ -45,12 +47,13 @@ export class ServiceService {
     //return this.http.get<RentalCar[]>(`${urlConstant.apiPath}/api/services/rentalcars`);
     return [
       {
-        id: 1,
+        rentalCarId: 1,
         carModel: "A",
+        seats: "2",
         service: {
-          id: 3,
+          serviceId: 3,
           serviceType: {
-            id: 1,
+            serviceTypeId: 1,
             name: "abc",
             defaultPrice: 100
           }
@@ -63,13 +66,13 @@ export class ServiceService {
     //return this.http.get<Wellness[]>(`${urlConstant.apiPath}/api/services/wellnesses`);
     return [
       {
-        id: 1,
+        wellnessId: 1,
         name: "C",
         duration: "2h",
         service: {
-          id: 4,
+          serviceId: 4,
           serviceType: {
-            id: 1,
+            serviceTypeId: 1,
             name: "abc",
             defaultPrice: 100
           }

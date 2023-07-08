@@ -72,59 +72,59 @@ class RegistrationRequest {
 }
 
 class Address {
-	+Id : int [PK]
+	+AddressId : int [PK]
 	+CountryId : int [FK]
 	+TimezoneId : int [FK]
 	+Street : string
-	+HouseNr : string
-	+Postcode : string
-	+City : string
-	+Addition : string
+	+HouseNumber : string
+	+PostalCode : string
+	+Town : string
+	+AddressAddition : string
 }
 class BankAccount {
-	+Id : int [PK]
+	+BankAccountId : int [PK]
 	+PaymentMethodId : int [FK]
 	+Iban : string
 }
 class Booking {
-	+Id : int [PK]
+	+BookingId : int [PK]
 	+CustomerId : int [FK]
 	+InvoiceId : int [FK]
 	+PaymentMethodId : int [FK]
 	+StatusId : int [FK]
-	+Nr : string
+	+Number : string
 	+Date : Datetime
-	+/Price : double
+	+/TotalPrice : double
 }
 class BookingPositionRoom {
-	+Id : int [PK]
+	+BookingPositionRoomId : int [PK]
 	+RoomId : int [FK]
 	+BookingId : int [FK]
 	+Date : Datetime
 	+Price : double
 }
 class BookingPositionService {
-	+Id : int [PK]
+	+BookingPositionServiceId : int [PK]
 	+ServiceId : int [FK]
 	+BookingId : int [FK]
 	+DateTime : Datetime
 	+Price : double
 }
 class Cash {
-	+Id : int [PK]
+	+CashId : int [PK]
 	+PaymentMethodId : int [FK]
 }
 class Contact {
-	+Id : int [PK]
-	+Title : string
-	+Telefone : string
+	+ContactId : int [PK]
+	+Salutation : string
+	+Phone : string
 }
 class Contact_Address {
 	+ContactId : int [PK][FK]
 	+AddressId : int [PK][FK]
 }
 class Country {
-	+Id : int [PK]
+	+CountryId : int [PK]
 	+Name : string
 	+Language : string
 	+Iso2 : string
@@ -134,74 +134,77 @@ class Country_Timezone {
 	+TimezoneId : int [PK][FK]
 }
 class CreditCard {
-	+Id : int [PK]
+	+CreditCardId : int [PK]
 	+PaymentMethodId : int [FK]
-	+CardNr : string
+	+CardNumber : string
 }
 class Customer {
-	+Id : int [PK]
+	+CustomerId : int [PK]
 	+ContactId : int [FK]
 	+UserId : int [FK]
-	+Nr : string
+	+Number : string
 	+FirstName : string
 	+LastName : string
 	+DateOfBirth : Datetime
 }
 class Flight {
-	+Id : int [PK]
+	+FlightId : int [PK]
 	+ServiceId : int [FK]
-	+FlightNr : string
+	+FlightNumber : string
+	+Destination : string
 }
 class Hotel {
-	+Id : int [PK]
+	+HotelId : int [PK]
 	+ContactId : int [FK]
 	+Name : string
+	+Stars : int
 }
 class Invoice {
-	+Id : int [PK]
-	+Nr : string
+	+InvoiceId : int [PK]
+	+Number : string
 }
 class PaymentMethod {
-	+Id : int [PK]
+	+PaymentMethodId : int [PK]
 	+CustomerId : int [FK]
 }
 class RentalCar {
-	+Id : int [PK]
+	+RentalCarId : int [PK]
 	+ServiceId : int [FK]
 	+CarModel : string
+	+Seats : string
 }
 class Room {
-	+Id : int [PK]
+	+RoomId : int [PK]
 	+HotelId : int [FK]
 	+RoomTypeId : int [FK]
-	+Nr : string
+	+RoomNumber : string
 }
 class RoomType {
-	+Id: int [PK]
+	+RoomTypeId: int [PK]
 	+Name : string
 	+DefaultPrice : double
 	+PersonsCount : int
 }
 class Service {
-	+Id : int [PK]
+	+ServiceId : int [PK]
 	+ServiceTypeId : int [FK]
 }
 class ServiceType {
-	+Id : int [PK]
+	+ServiceTypeId : int [PK]
 	+Name : string
 	+DefaultPrice : double
 }
 class Status {
-	+Id : int [PK]
+	+StatusId : int [PK]
 	+Name : string
 }
 class Timezone {
-	+Id : int [PK]
+	+TimeZoneId : int [PK]
 	+Name : string
-	+DiffUtc : int
+	+DifUtc : int
 }
 class Wellness {
-	+Id : int [PK]
+	+WellnessId : int [PK]
 	+ServiceId : int [FK]
 	+Name : string
 	+Duration : string

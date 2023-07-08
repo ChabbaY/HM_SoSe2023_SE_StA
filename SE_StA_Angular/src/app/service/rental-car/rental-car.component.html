@@ -3,14 +3,16 @@
     <tr>
       <th>ID</th>
       <th>Car Model</th>
+      <th>Seats</th>
       <th>Service Type</th>
       <th>Price</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let car of rentalCars">
-      <td>{{car.id}}</td>
+      <td>{{car.rentalCarId}}</td>
       <td>{{car.carModel}}</td>
+      <td>{{car.seats}}</td>
       <td>{{car.service.serviceType.name}}</td>
       <td>{{car.service.serviceType.defaultPrice}} €</td>
     </tr>

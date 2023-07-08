@@ -13,34 +13,34 @@ export class ContactService {
   getContact(id: number): Contact {
     //return this.http.get<Contact>(`${urlConstant.apiPath}/api/contacts/${id}`);
     return {
-      id: id,
-      title: "Hotel",
-      telefone: "12345678",
+      contactId: id,
+      salutation: "Hotel",
+      phone: "12345678",
       addresses: [
         {
-          id: 1,
+          addressId: 1,
           street: "Hauptstraße",
-          houseNr: "10B",
-          postcode: "85333",
-          city: "München",
-          addition: "",
+          houseNumber: "10B",
+          postalCode: "85333",
+          town: "München",
+          addressAddition: "",
           country: {
-            id: 1,
+            countryId: 1,
             name: "Deutschland",
             language: "Deutsch",
             iso2: "DE",
             timezones: [
               {
-                id: 1,
+                timeZoneId: 1,
                 name: "MEZ",
-                diffUtc: 1
+                difUtc: 1
               }
             ]
           },
           timezone: {
-            id: 1,
+            timeZoneId: 1,
             name: "MEZ",
-            diffUtc: 1
+            difUtc: 1
           }
         }
       ]

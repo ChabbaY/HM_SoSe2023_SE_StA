@@ -5,15 +5,17 @@
       <th>ID</th>
       <th>Contact</th>
       <th>Name</th>
+      <th>Stars</th>
       <th>Rooms</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let hotel of hotels">
-      <td>{{hotel.id}}</td>
+      <td>{{hotel.hotelId}}</td>
       <td><button routerLink="../contact/{{hotel.contactId}}">View Conatct</button></td>
       <td>{{hotel.name}}</td>
-      <td><button routerLink="./{{hotel.id}}/rooms">View Rooms</button></td>
+      <td>{{hotel.stars}}</td>
+      <td><button routerLink="./{{hotel.hotelId}}/rooms">View Rooms</button></td>
     </tr>
   </tbody>
 </table>

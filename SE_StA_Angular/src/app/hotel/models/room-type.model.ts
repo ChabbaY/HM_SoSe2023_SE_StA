@@ -1,5 +1,5 @@
 export interface RoomType {
-  id: number,
+  roomTypeId: number,
   name: string,
   defaultPrice: number,
   personsCount: number

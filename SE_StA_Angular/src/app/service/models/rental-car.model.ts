@@ -1,7 +1,8 @@
 import { Service } from "./service.model";
 
 export interface RentalCar {
-    id: number,
-    carModel: string,
-    service: Service
+  rentalCarId: number,
+  carModel: string,
+  seats: string,
+  service: Service
 }

@@ -2,12 +2,12 @@ import { Country } from "./country.model";
 import { Timezone } from "./timezone.model";
 
 export interface Address {
-  id: number,
+  addressId: number,
   street: string,
-  houseNr: string,
-  postcode: string,
-  city: string,
-  addition: string,
+  houseNumber: string,
+  postalCode: string,
+  town: string,
+  addressAddition: string,
   country: Country,
   timezone: Timezone
 }

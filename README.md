@@ -59,3 +59,10 @@ Mail: se.sta - D$xof7jR5h&S!bTrQK$W
 - Migration der Datenbank
 - Anlage der Rollen "User" und "Admin" in der AspNetRoles Tabelle
 - Anlage des Benutzers se-sta mit entsprechender E-Mail
+
+## Aktuell fehlende Endpunkte
+
+- Alle Kontakte inklusive Adressen mit Ländern und Zeitzonen
+- Alle Buchungen zu einem Kunden (customers/:id/bookings)
+- Alle Zimmer zu einem Hotel inklusive Zimmer-Typ
+- Alle 3 Dienstleistungen jeweils inklusive Dienstleistung und Dienstleistungs-Typ

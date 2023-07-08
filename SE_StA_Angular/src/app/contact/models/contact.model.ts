@@ -1,8 +1,8 @@
 import { Address } from "./address.model";
 
 export interface Contact {
-  id: number,
-  title: string,
-  telefone: string,
+  contactId: number,
+  salutation: string,
+  phone: string,
   addresses: Address[]
 }

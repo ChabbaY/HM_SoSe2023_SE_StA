@@ -1,5 +1,5 @@
 <h1>Contact</h1>
-<p>Telefone: {{contact.telefone}}</p>
+<p>Telefone: {{contact.phone}}</p>
 <p>Addresses:</p>
 <table>
   <thead>
@@ -16,12 +16,12 @@
   </thead>
   <tbody>
     <tr *ngFor="let address of contact.addresses">
-      <td>{{address.id}}</td>
+      <td>{{address.addressId}}</td>
       <td>{{address.street}}</td>
-      <td>{{address.houseNr}}</td>
-      <td>{{address.postcode}}</td>
-      <td>{{address.city}}</td>
-      <td>{{address.addition}}</td>
+      <td>{{address.houseNumber}}</td>
+      <td>{{address.postalCode}}</td>
+      <td>{{address.town}}</td>
+      <td>{{address.addressAddition}}</td>
       <td>{{address.country.name}}</td>
       <td>{{address.timezone.name}}</td>
     </tr>

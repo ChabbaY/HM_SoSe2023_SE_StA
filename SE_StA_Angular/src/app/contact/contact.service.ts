@@ -2,7 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { urlConstant } from 'src/constants/url-constant';
 
+import { Address } from './models/address.model';
 import { Contact } from './models/contact.model';
+import { ContactAddress } from './models/contact-address.model';
+import { Country } from './models/country.model';
+import { Timezone } from './models/timezone.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,40 +14,20 @@ import { Contact } from './models/contact.model';
 export class ContactService {
   constructor(private http: HttpClient) { }
 
-  getContact(id: number): Contact {
-    //return this.http.get<Contact>(`${urlConstant.apiPath}/api/contacts/${id}`);
-    return {
-      contactId: id,
-      salutation: "Hotel",
-      phone: "12345678",
-      addresses: [
-        {
-          addressId: 1,
-          street: "Hauptstraße",
-          houseNumber: "10B",
-          postalCode: "85333",
-          town: "München",
-          addressAddition: "",
-          country: {
-            countryId: 1,
-            name: "Deutschland",
-            language: "Deutsch",
-            iso2: "DE",
-            timezones: [
-              {
-                timeZoneId: 1,
-                name: "MEZ",
-                difUtc: 1
-              }
-            ]
-          },
-          timezone: {
-            timeZoneId: 1,
-            name: "MEZ",
-            difUtc: 1
-          }
-        }
-      ]
-    };
+  getContact(id: number) {
+    return this.http.get<Contact>(`${urlConstant.apiPath}/api/contacts/${id}`);
+  }
+
+  getAddresses() {
+    return this.http.get<Address[]>(`${urlConstant.apiPath}/api/addresses`);
+  }
+  getContactAddresses() {
+    return this.http.get<ContactAddress[]>(`${urlConstant.apiPath}/api/contactAddresses`);
+  }
+  getCountry(id: number) {
+    return this.http.get<Country>(`${urlConstant.apiPath}/api/countries/${id}`);
+  }
+  getTimezone(id: number) {
+    return this.http.get<Timezone>(`${urlConstant.apiPath}/api/timeZones/${id}`);
   }
 }

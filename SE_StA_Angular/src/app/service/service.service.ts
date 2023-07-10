@@ -5,6 +5,8 @@ import { urlConstant } from 'src/constants/url-constant';
 import { Flight } from './models/flight.model';
 import { RentalCar } from './models/rental-car.model';
 import { Wellness } from './models/wellness.model';
+import { Service } from './models/service.model';
+import { ServiceType } from './models/service-type.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,72 +14,22 @@ import { Wellness } from './models/wellness.model';
 export class ServiceService {
   constructor(private http: HttpClient) { }
 
-  getFlights(): Flight[] {
-    //return this.http.get<Flight[]>(`${urlConstant.apiPath}/api/services/flights`);
-    return [
-      {
-        flightId: 1,
-        flightNumber: "1",
-        destination: "Nirvana",
-        service: {
-          serviceId: 1,
-          serviceType: {
-            serviceTypeId: 1,
-            name: "abc",
-            defaultPrice: 100
-          }
-        }
-      }, {
-        flightId: 2,
-        flightNumber: "2",
-        destination: "Oktoberfest",
-        service: {
-          serviceId: 2,
-          serviceType: {
-            serviceTypeId: 1,
-            name: "abc",
-            defaultPrice: 100
-          }
-        }
-      }
-    ];
+  getFlights() {
+    return this.http.get<Flight[]>(`${urlConstant.apiPath}/api/flights`);
   }
 
-  getRentalCars(): RentalCar[] {
-    //return this.http.get<RentalCar[]>(`${urlConstant.apiPath}/api/services/rentalcars`);
-    return [
-      {
-        rentalCarId: 1,
-        carModel: "A",
-        seats: "2",
-        service: {
-          serviceId: 3,
-          serviceType: {
-            serviceTypeId: 1,
-            name: "abc",
-            defaultPrice: 100
-          }
-        }
-      }
-    ];
+  getRentalCars() {
+    return this.http.get<RentalCar[]>(`${urlConstant.apiPath}/api/rentalCars`);
   }
 
-  getWellnesses(): Wellness[] {
-    //return this.http.get<Wellness[]>(`${urlConstant.apiPath}/api/services/wellnesses`);
-    return [
-      {
-        wellnessId: 1,
-        name: "C",
-        duration: "2h",
-        service: {
-          serviceId: 4,
-          serviceType: {
-            serviceTypeId: 1,
-            name: "abc",
-            defaultPrice: 100
-          }
-        }
-      }
-    ];
+  getWellnesses() {
+    return this.http.get<Wellness[]>(`${urlConstant.apiPath}/api/wellnesses`);
+  }
+
+  getService(id: number) {
+    return this.http.get<Service>(`${urlConstant.apiPath}/api/services/${id}`);
+  }
+  getServiceType(id: number) {
+    return this.http.get<ServiceType>(`${urlConstant.apiPath}/api/serviceTypes/${id}`);
   }
 }

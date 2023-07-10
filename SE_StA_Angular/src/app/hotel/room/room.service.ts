@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { urlConstant } from 'src/constants/url-constant';
+
 import { Room } from '../models/room.model';
+import { RoomType } from '../models/room-type.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,30 +11,10 @@ import { Room } from '../models/room.model';
 export class RoomService {
   constructor(private http: HttpClient) { }
 
-  getRooms(hotelId: number): Room[] {
-    //return this.http.get<Room[]>(`https://localhost:50001/api/hotels/${hotelId}/rooms`);
-    return [
-      {
-        roomId: 1,
-        hotelId: hotelId,
-        roomType: {
-          roomTypeId: 1,
-          name: "normal",
-          defaultPrice: 100,
-          personsCount: 2
-        },
-        roomNumber: "1A"
-      }, {
-        roomId: 2,
-        hotelId: hotelId,
-        roomType: {
-          roomTypeId: 2,
-          name: "special",
-          defaultPrice: 120,
-          personsCount: 2
-        },
-        roomNumber: "2B"
-      }
-    ];
+  getRooms() {
+    return this.http.get<Room[]>(`${urlConstant.apiPath}/api/rooms`);
+  }
+  getRoomType(id: number) {
+    return this.http.get<RoomType>(`${urlConstant.apiPath}/api/roomTypes/${id}`);
   }
 }

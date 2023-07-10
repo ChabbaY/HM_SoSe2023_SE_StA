@@ -8,6 +8,8 @@ export interface Address {
   postalCode: string,
   town: string,
   addressAddition: string,
+  countryId: number
   country: Country,
+  timeZoneId: number
   timezone: Timezone
 }

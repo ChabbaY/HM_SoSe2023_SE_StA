@@ -9,6 +9,7 @@
       <th>Date of Birth</th>
       <th>Contact</th>
       <th>User</th>
+      <th>Bookings</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,7 @@
       <td>{{customer.dateOfBirth}}</td>
       <td><button routerLink="../contact/{{customer.contactId}}">View Conatct</button></td>
       <td>{{customer.userId}}</td>
+      <td><button routerLink="./{{customer.customerId}}/bookings">View Bookings</button></td>
     </tr>
   </tbody>
 </table>

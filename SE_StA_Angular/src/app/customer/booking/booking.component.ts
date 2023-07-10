@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { catchError, Subscription, throwError } from 'rxjs';
 
 import { BookingService } from './booking.service';
 import { Booking } from '../models/booking.model';
@@ -20,15 +20,18 @@ export class BookingComponent implements OnInit, OnDestroy {
     this.subs.push(this.route.params.subscribe(params => {
       this.customerId = +params['id']; //read id from route and convert into number
 
-      this.bookings = this.bookingService.getBookings(this.customerId);
-      /*this.subs.push(this.bookingService.getBookings(this.customerId).pipe(
+      this.subs.push(this.bookingService.getBookings().pipe(
         catchError((error) => {
           const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
           return throwError(() => new Error(errorMsg));
         })
       ).subscribe((response) => {
-        this.bookings = response;
-      }));*/
+        response.forEach((booking) => {
+          if (booking.customerId === this.customerId) {
+            this.bookings.push(booking);
+          }
+        });
+      }));
     }));
   }
 

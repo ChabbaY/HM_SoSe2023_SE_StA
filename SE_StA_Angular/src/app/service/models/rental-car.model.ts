@@ -4,5 +4,6 @@ export interface RentalCar {
   rentalCarId: number,
   carModel: string,
   seats: string,
+  serviceId: number,
   service: Service
 }

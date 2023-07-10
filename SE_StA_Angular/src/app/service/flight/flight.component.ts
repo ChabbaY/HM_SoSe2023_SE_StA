@@ -15,15 +15,33 @@ export class FlightComponent implements OnInit, OnDestroy {
   constructor(private serviceService: ServiceService) { }
 
   ngOnInit() {
-    this.flights = this.serviceService.getFlights();
-    /*this.subs.push(this.serviceService.getFlights().pipe(
+    this.subs.push(this.serviceService.getFlights().pipe(
       catchError((error) => {
         const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
         return throwError(() => new Error(errorMsg));
       })
     ).subscribe((response) => {
       this.flights = response;
-    }));*/
+      this.flights.forEach((flight) => {
+        this.subs.push(this.serviceService.getService(flight.serviceId).pipe(
+          catchError((error) => {
+            const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+            return throwError(() => new Error(errorMsg));
+          })
+        ).subscribe((response) => {
+          flight.service = response;
+
+          this.subs.push(this.serviceService.getServiceType(response.serviceTypeId).pipe(
+            catchError((error) => {
+              const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+              return throwError(() => new Error(errorMsg));
+            })
+          ).subscribe((response) => {
+            flight.service.serviceType = response;
+          }));
+        }));
+      });
+    }));
   }
 
   ngOnDestroy() {

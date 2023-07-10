@@ -15,15 +15,33 @@ export class WellnessComponent implements OnInit, OnDestroy {
   constructor(private serviceService: ServiceService) { }
 
   ngOnInit() {
-    this.wellnesses = this.serviceService.getWellnesses();
-    /*this.subs.push(this.serviceService.getWellnesses().pipe(
+    this.subs.push(this.serviceService.getWellnesses().pipe(
       catchError((error) => {
         const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
         return throwError(() => new Error(errorMsg));
       })
     ).subscribe((response) => {
       this.wellnesses = response;
-    }));*/
+      this.wellnesses.forEach((wellness) => {
+        this.subs.push(this.serviceService.getService(wellness.serviceId).pipe(
+          catchError((error) => {
+            const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+            return throwError(() => new Error(errorMsg));
+          })
+        ).subscribe((response) => {
+          wellness.service = response;
+
+          this.subs.push(this.serviceService.getServiceType(response.serviceTypeId).pipe(
+            catchError((error) => {
+              const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+              return throwError(() => new Error(errorMsg));
+            })
+          ).subscribe((response) => {
+            wellness.service.serviceType = response;
+          }));
+        }));
+      });
+    }));
   }
 
   ngOnDestroy() {

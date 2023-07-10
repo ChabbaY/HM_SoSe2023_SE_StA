@@ -2,7 +2,7 @@ export interface Booking {
   bookingId: number,
   number: string,
   date: string,
-  price: number,
+  totalPrice: number,
   customerId: number,
   invoiceId: number,
   paymentMethodId: number,

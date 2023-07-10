@@ -15,15 +15,33 @@ export class RentalCarComponent implements OnInit, OnDestroy {
   constructor(private serviceService: ServiceService) { }
 
   ngOnInit() {
-    this.rentalCars = this.serviceService.getRentalCars();
-    /*this.subs.push(this.serviceService.getRentalCars().pipe(
+    this.subs.push(this.serviceService.getRentalCars().pipe(
       catchError((error) => {
         const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
         return throwError(() => new Error(errorMsg));
       })
     ).subscribe((response) => {
       this.rentalCars = response;
-    }));*/
+      this.rentalCars.forEach((car) => {
+        this.subs.push(this.serviceService.getService(car.serviceId).pipe(
+          catchError((error) => {
+            const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+            return throwError(() => new Error(errorMsg));
+          })
+        ).subscribe((response) => {
+          car.service = response;
+
+          this.subs.push(this.serviceService.getServiceType(response.serviceTypeId).pipe(
+            catchError((error) => {
+              const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+              return throwError(() => new Error(errorMsg));
+            })
+          ).subscribe((response) => {
+            car.service.serviceType = response;
+          }));
+        }));
+      });
+    }));
   }
 
   ngOnDestroy() {

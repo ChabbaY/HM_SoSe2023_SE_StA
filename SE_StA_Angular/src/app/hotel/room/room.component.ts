@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { catchError, Subscription, throwError } from 'rxjs';
 
 import { Room } from '../models/room.model';
 import { RoomService } from './room.service';
@@ -20,7 +20,26 @@ export class RoomComponent implements OnInit, OnDestroy {
     this.subs.push(this.route.params.subscribe(params => {
       this.hotelId = +params['id']; //read id from route and convert into number
 
-      this.rooms = this.roomService.getRooms(this.hotelId);
+      this.subs.push(this.roomService.getRooms().pipe(
+        catchError((error) => {
+          const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+          return throwError(() => new Error(errorMsg));
+        })
+      ).subscribe((response) => {
+        response.forEach((room) => {
+          if (room.hotelId === this.hotelId) {
+            this.subs.push(this.roomService.getRoomType(room.roomTypeId).pipe(
+              catchError((error) => {
+                const errorMsg = "Error " + error.status + " - " + error.statusText + " " + JSON.stringify(error.error);
+                return throwError(() => new Error(errorMsg));
+              })
+            ).subscribe((response) => {
+              room.roomType = response;
+              this.rooms.push(room);
+            }));
+          }
+        });
+      }));
     }));
   }
 

@@ -4,11 +4,15 @@ Eine REST-Schnittstelle, die für die Verwendunbg in der Studienarbeit Softwaree
 
 ## Die Datenbank
 
-MySQL Datenbank in einem Docker Container. Daten-Volume im Unterordner db.
+MySQL Datenbank in einem Docker Container.
+Daten-Volume im Unterordner db.
+**SQL-dump** im Unterordner init.
 
 ## Die Schnittstelle
 
-Die REST-Schnittstelle umfasst eine Swagger-UI, diese beinhaltet eine Übersicht über alle verfügbaren Endpunkte. Das ganze läuft ebenfalls in einem Docker-Container.
+Die REST-Schnittstelle umfasst eine Swagger-UI,
+diese beinhaltet eine Übersicht über alle verfügbaren Endpunkte.
+Das ganze läuft ebenfalls in einem Docker-Container.
 
 ## Das Frontend
 
@@ -20,17 +24,34 @@ gestartet werden. (min. Angular CLI 16.0.3)
 ## Start der Anwendung
 
 In diesem Verzeichnis ein Terminal öffnen und folgenden Befehl absetzen:
-`docker-compose up`
+`docker-compose up`<br />
+Zusätzlich können die Docker-Images der API und des Angular-Frontends von
+Docker-Hub bezogen werden, die Links zu den repositories befinden sich am Ende dieses Dokumentes.<br />
+Nach dem Start sind folgende Webseiten im Browser erreichbar:<br />
+**GUI: localhost:4200**<br />
+**phpmyadmin: localhost:8080**<br />
+**swagger UI: localhost:50001/swagger**<br />
+In der GUI kann unter Account ein neuer Account registriert werden
+(Menüpunkt register). Dazu muss die angegebene E-Mail validiert werden
+(Menüpunkt validate oder Link in der E-Mail folgen). Danach kann ein
+Login erfolgen.Es existiert auch bereits ein Administrator-Account:<br />
+E-Mail: se.sta@chabbay.de<br />
+Passwort: D$xof7jR5h&S!bTrQK$W
 
 # Projektmanagement
 
-Im Unterordner Projektmanagement liegen alle Dateien des ersten Artefakts der Studienarbeit:
-Das überarbeitete Pflichenheft, der Projektstrukturplan sowie die Einsatzmittelpanung in der Excel-Datei "Projektstrukturplan", sowie der dazugehörige MPM-Netzplan mit Meilensteinen als SVG:
+Im **Unterordner Projektmanagement** liegen alle Dateien des ersten
+Artefakts der Studienarbeit:<br />
+Das überarbeitete Pflichenheft, der Projektstrukturplan
+sowie die Einsatzmittelpanung in der Excel-Datei "Projektstrukturplan",
+sowie der dazugehörige MPM-Netzplan mit Meilensteinen als SVG:
 ![MPMNetzplan](Projektmanagement/MPM_Netzplan.svg)
 
 # Datenmodell
 
-Die funktionalen Anforderungen gehen aus dem Pflichtenheft hervor. Hier ist das vollständige Datenmodell inklusive Umsetzung der Berechtigungsstruktur gezeigt.
+Die funktionalen Anforderungen gehen aus dem Pflichtenheft hervor.
+Hier ist das vollständige Datenmodell inklusive Umsetzung der
+Berechtigungsstruktur gezeigt.
 
 ## Klassendiagramm
 
@@ -54,15 +75,19 @@ Nicht vergessen den Wert danach wieder auf mysql zu setzen.
 Datenbank: root - BaqV7knGfeuYzC<br />
 Mail: se.sta - D$xof7jR5h&S!bTrQK$W
 
-## Aktuelle Schritte zur Inbetriebnahme
-
-- Migration der Datenbank
-- Anlage der Rollen "User" und "Admin" in der AspNetRoles Tabelle
-- Anlage des Benutzers se-sta mit entsprechender E-Mail
-
 ## Aktuell fehlende Endpunkte
 
 - Alle Kontakte inklusive Adressen mit Ländern und Zeitzonen
 - Alle Buchungen zu einem Kunden (customers/:id/bookings)
 - Alle Zimmer zu einem Hotel inklusive Zimmer-Typ
 - Alle 3 Dienstleistungen jeweils inklusive Dienstleistung und Dienstleistungs-Typ
+
+# Die Docker-Images
+
+## Docker Image ASP.NET CORE API
+
+https://hub.docker.com/r/chabbay/sestaapi
+
+## Docker Image Angular Frontend
+
+https://hub.docker.com/r/chabbay/sestaangular

@@ -5,36 +5,46 @@ Eine REST-Schnittstelle, die für die Verwendunbg in der Studienarbeit Softwaree
 ## Die Datenbank
 
 MySQL Datenbank in einem Docker Container.
-Daten-Volume im Unterordner db.
-**SQL-dump** im Unterordner init.
+- Daten-Volume im Unterordner db
+- **SQL-dump** im Unterordner init
+- Das Datenmodell befindet sich im gleichnamigen Abschnitt
+
+Version: mysql 8.0.33
+
+## PhpMyAdmin
+
+Zur Datenbank läuft noch ein phpmyadmin Docker-Container.<br />
+Version: phpmyadmin 5.2.1, php 8.1.20
 
 ## Die Schnittstelle
 
-Die REST-Schnittstelle umfasst eine Swagger-UI,
+Die ASP.NET Core REST-Schnittstelle umfasst eine Swagger-UI,
 diese beinhaltet eine Übersicht über alle verfügbaren Endpunkte.
-Das ganze läuft ebenfalls in einem Docker-Container.
+Das ganze läuft ebenfalls in einem Docker-Container.<br />
+Version: dotnet 7
 
 ## Das Frontend
 
 Angular Anwendung in einem Docker Container.
 Kann <b>bei lokal installierter Angular CLI</b> im Unterverzeichnis SE_StA_Angular mit
 `ng serve --open`
-gestartet werden. (min. Angular CLI 16.0.3)
+gestartet werden.<br />
+Version: Angular CLI 16.1.3
 
 ## Start der Anwendung
 
 In diesem Verzeichnis ein Terminal öffnen und folgenden Befehl absetzen:
 `docker-compose up`<br />
 Zusätzlich können die Docker-Images der API und des Angular-Frontends von
-Docker-Hub bezogen werden, die Links zu den repositories befinden sich am Ende dieses Dokumentes.<br />
+Docker-Hub bezogen werden, die Links zu den repositories befinden sich am Ende dieses Dokumentes.<br /><br />
 Nach dem Start sind folgende Webseiten im Browser erreichbar:<br />
 **GUI: localhost:4200**<br />
 **phpmyadmin: localhost:8080**<br />
-**swagger UI: localhost:50001/swagger**<br />
+**swagger UI: localhost:50001/swagger**<br /><br />
 In der GUI kann unter Account ein neuer Account registriert werden
 (Menüpunkt register). Dazu muss die angegebene E-Mail validiert werden
 (Menüpunkt validate oder Link in der E-Mail folgen). Danach kann ein
-Login erfolgen.Es existiert auch bereits ein Administrator-Account:<br />
+Login erfolgen. Es existiert auch bereits ein Administrator-Account:<br />
 E-Mail: se.sta@chabbay.de<br />
 Passwort: D$xof7jR5h&S!bTrQK$W
 
@@ -53,9 +63,9 @@ Die funktionalen Anforderungen gehen aus dem Pflichtenheft hervor.
 Hier ist das vollständige Datenmodell inklusive Umsetzung der
 Berechtigungsstruktur gezeigt.
 
-## Klassendiagramm
+## Datenbankschema
 
-![Klassendiagramm](Classes.png)
+![Datenbankschema](Classes.png)
 
 # Für Entwickler
 
@@ -74,13 +84,6 @@ Nicht vergessen den Wert danach wieder auf mysql zu setzen.
 
 Datenbank: root - BaqV7knGfeuYzC<br />
 Mail: se.sta - D$xof7jR5h&S!bTrQK$W
-
-## Aktuell fehlende Endpunkte
-
-- Alle Kontakte inklusive Adressen mit Ländern und Zeitzonen
-- Alle Buchungen zu einem Kunden (customers/:id/bookings)
-- Alle Zimmer zu einem Hotel inklusive Zimmer-Typ
-- Alle 3 Dienstleistungen jeweils inklusive Dienstleistung und Dienstleistungs-Typ
 
 # Die Docker-Images
 

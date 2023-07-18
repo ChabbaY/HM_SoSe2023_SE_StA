@@ -56,21 +56,6 @@ class AspNetUsers {
 	+AccessFailedCount : int
 }
 
-class AuthRequest {
-	+Email : string
-	+Passord : string
-}
-class AuthResponse {
-	+Username : string
-	+Email : string
-	+Token : string
-}
-class RegistrationRequest {
-	+Email : string
-	+Username : string
-	+Password : string
-}
-
 class Address {
 	+AddressId : int [PK]
 	+CountryId : int [FK]
